@@ -22,6 +22,7 @@ body {
     margin: 0;
     background-color: var(--background-color);
     font-family:Arial, Helvetica, sans-serif;
+    height: 100vh;
 }
 
 /* HEADER */
@@ -54,6 +55,7 @@ body {
     justify-content: flex-end;
     align-items: center;
     background-color: var(--secondary-color);
+    border-bottom: 1px solid #0000002d;
 }
 #main-nav a {
     color: white !important; /* Important to override default link color */
@@ -98,6 +100,7 @@ body {
     height: calc(100vh - 64px); /* Adjust height to account for header */
     background-color: #ffffff; /* White background */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    border-right: 1px solid #0000002d; /* Accentuated border */
 }
 
 /* EVENT CALENDAR */
@@ -107,6 +110,7 @@ body {
     background-color: #ffffff; /* White background */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
     border-radius: 10px; /* Rounded corners */
+    border: 1px solid #0000002d; /* Accentuated border */
     padding: 20px; /* Add padding */
     margin-bottom: 20px; /* Add some spacing between cards */
     width: 20%; /* Set width of card */
@@ -118,8 +122,10 @@ body {
 
 /* Style for event title */
 .event-calendar h2 {
+  margin-top: 3rem;
     font-size: 1.5rem; /* Adjust font size */
     margin-bottom: 15px; /* Add space below the title */
+    color: var(--primary-color); /* Use primary color as heading color */
 }
 
 /* Style for event details */
@@ -146,6 +152,7 @@ body {
     border-radius: 5px; /* Add rounded corners */
     cursor: pointer; /* Add pointer cursor on hover */
     transition: background-color 0.3s ease; /* Smooth transition */
+    margin-top: 10px;
 }
 
 /* Change button background color on hover */
@@ -167,4 +174,70 @@ body {
 }
 #main-footer-p {
     color: black; /* Black text color */
+}
+
+
+/* Media queries for responsiveness */
+@media only screen and (max-width: 768px) {
+  /* Make page content take up the full viewport height on small screens */
+  html, body {
+      height: 100%;
+      overflow: hidden;
+  }
+
+  #main-header {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  /* Adjust styles for smaller screens */
+  #main-nav {
+    /* Example adjustment */
+    display: flex;
+    align-items: center;
+  }
+
+  #main-ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    max-height: 15vh;
+    padding: 0;
+    gap: 0;
+    margin-right: 2rem;
+  }
+
+  .container {
+    /* Example adjustment */
+    flex-direction: column; /* Stack sidebar and main content vertically */
+    align-items: center;
+  }
+
+  .sidebar {
+    /* Example adjustment */
+    display: none;
+  }
+
+  .event-calendar {
+    /* Example adjustment */
+    width: calc(100% - 40px); /* Occupy full width on smaller screens */
+    margin: 0 20px; /* Remove margin */
+    align-items: center;
+    margin-top: 3rem;
+    padding: 4rem;
+  }
+
+  #main-footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: var(--primary-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.9rem;
+    padding: 10px 0;
+  }
 }
