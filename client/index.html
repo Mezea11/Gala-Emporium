@@ -9,18 +9,43 @@
     <link rel="stylesheet" href="index.css">
 </head>
 <body>
-    <header>
-        <nav>
-          <a href="#">Home</a>
-          <a href="#login">Login</a>
-          <a href="#clubs">
-            <li><p>Club 1</p></li>
-            <li><p>Club 2</p></li>
-            <li><p>Club 3</p></li>
-            <li><p>Club 4</p></li>
-          </a>
-        </nav>
-      </header>
-      <main></main>
+  <!-- HEADER -->
+  <header id="main-header">
+    <h1 id="main-h1">Gala Emporium</h1>
+    <p id="main-header-p">The sky is not the limit - it's the backdrop.</p>
+  </header>
+  <!-- NAVBAR -->
+  <nav id="main-nav">
+    <ul id="main-ul">
+        <li class="main-li"><a href="#">Home</a></li>
+        <li class="main-li"><a href="#About">About</a></li>
+        <li class="main-li"><a href="#Contact">Contact</a></li>
+    </ul>
+</nav>
+
+
+  <!-- MAIN CONTENT -->
+  <div class="container">
+    <aside class="sidebar">
+      <p style="display: flex; align-items: center; justify-content: center;">This is a sidebar</p>
+    </aside>
+    <section class="event-calendar">
+        <!-- Add the collective event calendar here -->
+        <h2>Upcoming Events</h2>
+        <div class="event">
+          <h3>Event Name</h3>
+          <p>Description of the event.</p>
+          <img src="client/gala.jpg" alt="Event Image">
+          <button>Book Tickets</button>
+      </div>
+        <!-- More events can be added similarly -->
+    </section>
+</div>
+
+<!-- FOOTER -->
+<footer id="main-footer">
+    <p id="main-footer-p">&copy; 2024 Gala Emporium. All rights reserved.</p>
+</footer>
+
 </body>
 </html>
