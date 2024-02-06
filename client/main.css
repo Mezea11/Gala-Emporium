@@ -222,7 +222,7 @@ body {
 
   .event-calendar {
     /* Example adjustment */
-    width: calc(100% - 40px); /* Occupy full width on smaller screens */
+    width: calc(100% - 40px); /* Occupy full width on smaller screens. */
     margin: 0 20px; /* Remove margin */
     align-items: center;
     margin-top: 3rem;
