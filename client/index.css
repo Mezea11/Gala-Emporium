@@ -1,1 +1,9 @@
-@import url(main.css);
+/* non-specific styles*/
+@import url('main.css');
+/* import css for individual pages*/
+@import url('./pages/home.css');
+@import url('./pages/about.css');
+@import url('./pages/club-1.css');
+@import url('./pages/club-2.css');
+@import url('./pages/club-3.css');
+@import url('./pages/club-4.css');
