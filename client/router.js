@@ -1,7 +1,9 @@
-import home from "client/pages/home.js";
-import about from "client/pages/about.js";
-import login from "client/pages/login.js";
+// Import js-files from pages
+import home from "./pages/home.js";
+import about from "./pages/about.js";
+import login from "./pages/login.js";
 
+// Function to change "location"
 async function route() {
   //console.log(location)
 
@@ -11,10 +13,11 @@ async function route() {
       $('main').html(await about())
       break;
     case "":
-      console.log("HOME", home())
+      console.log("HOME")
       $('main').html(home())
       break;
     case "login":
+      console.log("LOGIN")
       $('main').html(login())
       break;
     default:

@@ -1,18 +1,8 @@
-export default async function about() {
-
-    const response = await fetch('/api/about')
-    const result = await response.json()
-  
-    console.log(result)
-  
-    let html = ''
-  
-    for (let data of result) {
-      html += `
-      <h1>${data.title}</h1>
-      <p>${data.text}</p>
-    `
-    }
-  
-    return `<article id="about">${html}</article>`
-  }
+export default function about() {
+  return `
+  <article id="about">
+     <h1>Welcome to my ABOUT page</h1>
+     <p>This is the ABOUT page</p>
+  </article>
+  `
+}
