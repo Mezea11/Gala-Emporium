@@ -1,0 +1,126 @@
+/* Global color variables */
+:root {
+    /* Main Colors */
+      --primary-color: #3D6CB9; /* Deep Blue */
+      --secondary-color: #5486D6; /* Lighter Blue */
+      --accent-color: #86BBD8; /* Pale Blue */
+      --background-color: #F5F5F5; /* Light Gray */
+      --text-color: #333333; /* Dark Gray */
+  
+    /* Additional Colors */
+      --success-color: #2ECC71; /* Emerald Green */
+      --info-color: #3498DB; /* Dodger Blue */
+      --warning-color: #F39C12; /* Sunflower Yellow */
+      --error-color: #E74C3C; /* Alizarin Red */
+      --dark-color: #34495E; /* Wet Asphalt */
+      --light-color: #ECF0F1; /* Clouds */
+  }
+
+/* Container styling */
+#club-1-container { 
+    display: flex;
+    flex-direction: column;
+    justify-content: top;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    background-color: #f0ede7cc;
+    padding-top: 25px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background-image: url("/client/assets/geometry1.jpg");
+}
+
+
+#club-1-main-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 80%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+#club-1-container h1 {
+    color: white;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7); /* Add a subtle text shadow */
+}
+
+/* Paragraph styling */
+#club-1-p {
+    width: 50%; /* Adjust the width as needed */
+    text-align: center;
+    margin-bottom: 20px;
+    font-style: italic;
+    border: transparent;
+    border-radius: 10px;
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7); /* Add a subtle text shadow */
+}
+
+/* Button styling */
+#club-1-home-btn {
+    padding: 1rem;
+    border: transparent;
+    border-radius: 6px;
+    color: #D4AF37;
+    background-color: rgb(0, 0, 0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#club-1-home-btn:hover {
+    background-color: rgba(0, 0, 0, 0.788);
+    cursor: pointer;
+}
+
+/* Header styling */
+.club-1-event-calendar {
+    box-shadow: 4px 4px 6px rgb(0, 0, 0); /* Add a subtle shadow */
+    border-radius: 10px; /* Rounded corners */
+    border: 1px solid #0000002d; /* Accentuated border */
+    padding: 20px; /* Add padding */
+    margin-bottom: 20px; /* Add some spacing between cards */
+    width: 15%; /* Set width of card */
+    height: auto;
+    text-align: center; /* Center-align text */
+    margin-top: 3rem; /* Adjust margin for positioning */
+    margin-bottom: 20rem; /* Adjust margin for positioning */
+    background-color: white;
+}
+
+.club-1-event-calendar h2 {
+    margin-top: 3rem;
+    font-size: 1.5rem; /* Adjust font size */
+    margin-bottom: 15px; /* Add space below the title */
+    color: black; /* Use primary color as heading color */
+}
+
+.club-1-event-calendar h3 {
+    margin-bottom: 5px; /* Add space below event name */
+    color: black;
+}
+
+.club-1-event-calendar button {
+    background-color: #ad6d0b; /* Blue background color */
+    color: black; /* White text color */
+    border: none; /* Remove border */
+    padding: 10px 20px; /* Add padding */
+    border-radius: 5px; /* Add rounded corners */
+    cursor: pointer; /* Add pointer cursor on hover */
+    transition: background-color 0.3s ease; /* Smooth transition */
+    margin-top: 10px;
+    margin-bottom: 4rem;
+    font-family: Arial, Helvetica, sans-serif !important;
+}
+
+.club-1-event-calendar button:hover {
+    background-color: #9c5f0a; /* Darken background color on hover */   
+}
+
+.club-1-event-calendar .event p {
+    color: black;
+}

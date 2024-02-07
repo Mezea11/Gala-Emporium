@@ -30,7 +30,7 @@ body {
     flex-direction: row;
     justify-content: flex-end;
     align-items: center;
-    background-color: var(--primary-color);
+    background-color: #012c57;
     border-bottom: 1px solid #0000002d;
 }
 
@@ -51,14 +51,14 @@ body {
     color: white !important; /* Important to override default link color */
     text-decoration: none;
     padding: 10px 15px;
-    border-radius: 5px;
+    border-radius: 8px;
     transition: background-color 0.3s ease;
     min-width: 120px;
 }
 
 /* Hover effect for navbar links */
 #nav-container a:hover {
-    background-color: var(--accent-color);
+    background-color: #02025031;
     color: var(--background-color);
 }
 
@@ -77,7 +77,7 @@ body {
     margin: 1rem;
     gap: 2rem;
     color: var(--text-color);
-    text-shadow: 1px 1px 2px rgb(0, 0, 0); /* Subtle shadow */
+    text-shadow: 1px 1px 2px #000000; /* Subtle shadow */
 }
 
 /* MAIN SECTION */
@@ -153,8 +153,7 @@ body {
 
 /* FOOTER */
 #main-footer {
-    background-color: var(--primary-color);
-    position: absolute;
+    background-color: #162030;
     bottom: 0;
     display: flex;
     flex-direction: row;
@@ -166,7 +165,7 @@ body {
     border-top: 1px solid #0000002d;
 }
 #main-footer-p {
-    color: black; /* Black text color */
+    color: white; /* White text color */
 }
 
 
@@ -222,15 +221,4 @@ body {
     padding: 4rem;
   }
 
-  #main-footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    background-color: var(--primary-color);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 0.9rem;
-    padding: 10px 0;
-  }
 }

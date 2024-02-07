@@ -11,6 +11,7 @@ const port = 80
 server.use(express.json())
 server.use(express.static('../client'))
 
+
 // MONGODB CLUSTER CONNECTION
 mongoose.connect("mongodb+srv://christiancastellanosmeza:hello123@gala-emporium-2024.p4a4x4z.mongodb.net/")
 

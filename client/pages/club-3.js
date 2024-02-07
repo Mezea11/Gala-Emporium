@@ -1,8 +1,8 @@
 export default function club3() {
     return `
-    
-       <h1>Welcome to my CLUB3 page</h1>
-       <p>This is the CLUB3 page</p>
-    
+        <div id="container">
+            <h1>Welcome to my CLUB3 page</h1>
+            <p class: "club3-p">This is the CLUB3 page</p> 
+        </div>
     `
 }
