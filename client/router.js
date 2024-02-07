@@ -1,6 +1,6 @@
-import home from "client\pages\home.js";
-import about from "client\pages\about.js";
-import contact from "client\pages\contact.js";
+import home from "client/pages/home.js";
+import about from "client/pages/about.js";
+import login from "client/pages/login.js";
 
 async function route() {
   //console.log(location)
@@ -14,8 +14,8 @@ async function route() {
       console.log("HOME", home())
       $('main').html(home())
       break;
-    case "contact":
-      $('main').html(contact())
+    case "login":
+      $('main').html(login())
       break;
     default:
       console.log("404 You've broken the internet")
