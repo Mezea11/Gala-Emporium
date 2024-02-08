@@ -1,5 +1,5 @@
 //import Home from "./api/home.js"
-import about from "./api/About.js"
+import about from "./api/about.js"
 import admins from "./api/Admins.js"
 import clubs from "./api/Clubs.js"
 import events from "./api/Events.js"
