@@ -19,10 +19,6 @@ export default function clubs(server) {
     const newClub = new Club({ club_name, adminId });
     const savedClub = await newClub.save();
 
-    const admin = await Admin.findById(adminId);
-    admin.clubs.push(savedClub._id);
-    await admin.save();
-
     res.status(201).json(savedClub);
   });
 }
