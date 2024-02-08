@@ -13,7 +13,7 @@ server.use(express.static('../client'))
 
 
 // MONGODB CLUSTER CONNECTION
-mongoose.connect("mongodb+srv://christiancastellanosmeza:hello123@gala-emporium-2024.p4a4x4z.mongodb.net/")
+mongoose.connect("mongodb+srv://christiancastellanosmeza:hello123@gala-emporium-2024.p4a4x4z.mongodb.net/emporium")
 
 // API-REGISTER.JS FUNCTION CALLED
 apiRegister(server)
