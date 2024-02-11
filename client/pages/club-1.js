@@ -104,3 +104,39 @@ export default function club1() {
     `;
 }
 
+
+
+
+/* 
+
+// Function to fetch data from API and populate HTML
+function fetchDataAndPopulateHTML() {
+  // Fetch data from the API
+  $.get('./server/api/clubs', function(data) {
+      // Loop through each event
+      data.forEach(function(event) {
+          // Create HTML structure for each event
+          var eventHtml = `
+              <section id="ivy-section">
+                  <h2>Upcoming Event: ${event.title}</h2>
+                  <div class="ivy-events">
+                      <button>Book Tickets</button>
+                  </div>
+              </section>
+          `;
+          // Append the HTML to the container
+          $('.ivy-section-container').append(eventHtml);
+      });
+  });
+}
+
+// Call the functions to build HTML and fetch data
+$(document).ready(function() {
+  // Build HTML structure
+  $('body').append(buildHTML());
+  
+  // Fetch data and populate HTML
+  fetchDataAndPopulateHTML();
+});
+
+*/

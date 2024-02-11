@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import Admin from "./Admins.js"; // Assuming Admins.js exports the Admin model
+import admin from "./Admins.js"; // Assuming Admins.js exports the Admin model
 
 const clubsSchema = mongoose.Schema({
   club_name: String,
