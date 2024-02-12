@@ -1,0 +1,57 @@
+#home-container {
+    background-image: url('../assets/fest.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+
+}
+
+#home-container a {
+    color: inherit;
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+    min-width: 120px;
+}
+
+#home-container a:hover {
+    background-color: #02025031;
+    color: var(--background-color);
+}
+
+.event-calendar {
+    background-color: indigo;
+    width: 48%;
+    padding: 2rem;
+    margin-left: 0 auto;
+    margin-top: 2rem;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.event {
+    background-color: beige;
+    padding: 2rem;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin-bottom: 3rem;
+}
+
+.sidebar {
+    background-color: #012c57;
+    color: whitesmoke;
+    border-radius: 1rem;
+    width: 20%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    height: fit-content;
+    text-align: center;
+    padding: 3rem;
+    margin-top: 5rem;
+    margin-right: 1rem;
+    margin-left: 2rem;
+    position: sticky;
+    top: 3rem;
+}
