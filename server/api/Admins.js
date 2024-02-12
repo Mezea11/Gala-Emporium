@@ -1,11 +1,11 @@
 import mongoose from "mongoose"
 
-const adminsSchema = mongoose.Schema({
+export const adminsSchema = mongoose.Schema({
   username: String,
   password: String
 })
 
-const adminsModel = mongoose.model('admins', adminsSchema)
+export const adminsModel = mongoose.model('admins', adminsSchema)
 
 export default function admins(server) {
 
