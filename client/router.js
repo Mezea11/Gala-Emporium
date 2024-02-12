@@ -39,7 +39,7 @@ async function route() {
       break;
     case "club-4":
       console.log("CLUB-4");
-      $('main').html(club4())
+      $('main').html(await club4())
       break;
     case "booking":
       console.log("BOOKING");
