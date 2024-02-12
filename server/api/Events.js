@@ -1,8 +1,10 @@
 import mongoose from "mongoose"
+import clubs from "./Clubs"
 
 const eventsSchema = mongoose.Schema({
   title: String,
-  password: String
+  description: String,
+  
 })
 
 const eventsModel = mongoose.model('events', eventsSchema)
@@ -14,3 +16,12 @@ export default function clubs(server) {
   })
 
 }
+
+
+/* 
+   Dra in klubb ID till events, koppla ihop
+   Skapa en endpoint som låter oss hämta in ett SPECIFIKT event
+
+   Gå in till events, filtrera ut de som har motsvarande klubb ID som de  är associerade med 
+   
+*/
