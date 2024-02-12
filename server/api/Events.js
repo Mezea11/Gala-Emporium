@@ -1,5 +1,4 @@
 import mongoose from "mongoose"
-import clubs from "./Clubs"
 
 const eventsSchema = mongoose.Schema({
   title: String,
