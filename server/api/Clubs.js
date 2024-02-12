@@ -1,11 +1,9 @@
 import mongoose from "mongoose";
 import {adminsModel, adminsSchema} from "./Admins.js"; // Assuming Admins.js exports the Admin model
 
-adminsModel
-
 const clubsSchema = mongoose.Schema({
   club_name: String,
-  adminId: { type: mongoose.Schema.Types.ObjectId, ref: "Admin" } // Reference Admin model here*/
+  adminId: { type: mongoose.Schema.Types.ObjectId, ref: "Admins" } // Reference Admin model here*/
 });
 
 const Club = mongoose.model('clubs', clubsSchema);
