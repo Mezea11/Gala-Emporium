@@ -1,5 +1,5 @@
 #home-container {
-    background-image: url('../assets/fest.jpg');
+    background-image: url('../assets/oscars.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -19,12 +19,12 @@
 }
 
 #home-container a:hover {
-    background-color: #02025031;
+    background-color: #c8c8eb31;
     color: var(--background-color);
 }
 
 .event-calendar {
-    background-color: indigo;
+    background-color: rgba(242, 168, 32, 0.824);
     width: 48%;
     padding: 2rem;
     margin-left: 0 auto;
@@ -32,8 +32,17 @@
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
+#home-container .event-calendar h2 {
+    color: whitesmoke;
+    font-family:'Times New Roman', Times, serif;
+    font-weight: bold;
+    font-size: xx-large;
+    font-style: oblique;
+}
+
 .event {
-    background-color: beige;
+    background-color: rgba(106, 142, 35, 0.632);
+    color: whitesmoke;
     padding: 2rem;
     border-radius: 5px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
