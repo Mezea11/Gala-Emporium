@@ -1,4 +1,5 @@
-/* Global color variables */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
 :root {
     /* Main Colors */
     --primary-color: #3D6CB9; /* Deep Blue */
@@ -16,6 +17,9 @@
     --light-color: #ECF0F1; /* Clouds */
 }
 
+
+
+  
 .ivy-container {
     margin-top: auto; /* Push the main content down below the navbar */
     flex-grow: 1; /* Make the container grow as needed */
@@ -26,6 +30,7 @@
     background-color: rgba(3, 2, 15, 0.973);
     justify-content: center;
     align-items: stretch;
+  
 }
 
 .ivy-main-container {
@@ -39,7 +44,9 @@
     width: 100vh;
     margin: auto;
     height: auto;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: "Playfair Display", serif !important;
+    font-weight: 400;
+    font-style: normal;
 }
 
 .ivy-section-container {
@@ -124,6 +131,8 @@
     margin-left: 0;
     position: sticky;
     top: 6em; /* Offset from the top of the page */
+    overflow: hidden;
+    
 }
 
 #ivy-aside-1{
@@ -134,7 +143,7 @@
     flex-direction: column;
     width: 50%;
     justify-content: center; 
-    align-items:center;
+    align-items: center;
     min-height: fit-content;
     margin-bottom: 20px; /* Add margin bottom to create space between the aside elements */
     margin-left: 15rem;
@@ -159,8 +168,39 @@
     color:  #5a5959;
 }
 #ivy-aside-1 img {
-    width: 72%; /* Make the image fill the width of its container */
+    width: 100%; /* Make the image fill the width of its container */
     height: auto;
     border-radius: 5px; /* Add rounded corners to the image */
     margin-bottom: 10px; /* Add some space below the image */
+}
+
+
+/* Adjustments for tablets */
+@media only screen and (max-width: 768px) {
+    .ivy-main-container {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Adjust as needed */
+    }
+
+    .aside-container {
+        flex-direction: column;
+        margin-left: 0;
+        top: auto;
+    }
+
+    #ivy-aside-1 {
+        width: 100%;
+        margin-left: 0;
+        margin-bottom: 20px;
+    }
+}
+
+/* Adjustments for mobile */
+@media only screen and (max-width: 480px) {
+    .ivy-main-container {
+        grid-template-columns: 1fr;
+    }
+
+    .ivy-section-container {
+        padding: 0;
+    }
 }
