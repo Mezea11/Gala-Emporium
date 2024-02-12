@@ -8,11 +8,11 @@ export default function club3() {
             </section>
             
             <section id="calender-club3">
-                <h1>Club Calender</h1>
+                <h2>Club Calender</h2>
 
                 <section class="event-club3">
                     <article>
-                        <h2>Event  title</h2>
+                        <h3>Event  title</h3>
                         <p>Event info</p>
                     </article>
                     <div>
@@ -23,7 +23,7 @@ export default function club3() {
 
                 <section class="event-club3">
                     <article>
-                        <h2>Event  title</h2>
+                        <h3>Event  title</h3>
                         <p>Event info</p>
                     </article>
                     <div>
@@ -34,7 +34,7 @@ export default function club3() {
 
                 <section class="event-club3">
                     <article>
-                        <h2>Event  title</h2>
+                        <h3>Event  title</h3>
                         <p>Event info</p>
                     </article>
                     <div>
