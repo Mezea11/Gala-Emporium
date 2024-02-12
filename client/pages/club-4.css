@@ -1,0 +1,77 @@
+@font-face {
+    font-family: 'Chinese Rocks RG';
+    src: url('../assets/chinese rocks rg.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+#club-4-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    flex-grow: 1;
+    padding: 1rem;
+    margin: auto;
+}
+
+#club-4-about {
+    position: sticky;
+    top: 0rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    background-image: url("../assets/club-4-about-bg.jpeg");
+    border-radius: 10px;
+}
+    
+    
+
+#club-4-about h1 {
+    font-family: 'Chinese Rocks RG', sans-serif;
+    font-size: 8rem;
+    color: chocolate;
+    line-height: 0.2;
+    margin-bottom: 2rem;
+    opacity: 70%;
+}
+
+#video-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+    opacity: 70%;
+}
+
+#video-background {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#event-container-club-4 {
+    margin-top: 3rem;
+}
+
+.event-club-4 {
+    margin-bottom: 2rem;
+    width: 30rem;
+    background-color: darkgoldenrod;
+    border: black 1px solid;
+    border-radius: 5px;
+    padding: 1rem;
+}
+
+.event-club-4 button {
+    width: 4rem;
+    height: 2rem;
+    border-radius: 4px;
+    background-color: chocolate;
+    border-color: chocolate;
+}
