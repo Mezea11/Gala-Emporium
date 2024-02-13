@@ -34,7 +34,7 @@ export default function clubs(server) {
       }
     });
 
-    // Endpoint to create a new event and associate it with a club
+    // Endpoint to create a new event and associate it with a club...
     server.post('/api/events', async (req, res) => {
       try {
         const { title, description, clubId } = req.body;
