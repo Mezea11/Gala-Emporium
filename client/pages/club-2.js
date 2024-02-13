@@ -1,4 +1,21 @@
-export default function club2() {
+export default async function club2() {
+    const response = await fetch('/api/events/65ca1005dd4d79add97d34c6') //clubId: 65ca1005dd4d79add97d34c6
+    const result = await response.json()
+
+    let event = ''
+
+    for (let i = 0; i < result.length; i++) {
+
+        let data = result[i];
+        
+        event += `
+        <div class="event-club-2">
+            <h1>${data.title}</h1>
+            <p>${data.description}</p>
+            <button>Tickets</button>
+        </div>
+      `    
+    }
     return `
     <div id="club-2-container"> 
         <section id="title-club2">
@@ -10,28 +27,7 @@ export default function club2() {
     
         </div>
         <section id="event-container-club-2">
-            <div class="event-club-2">
-                <h1> Event Title </h1>
-                <p>Event description</p>
-                <button>Tickets</button>
-            </div>
-            <div class="event-club-2">
-                <h1> Event Title </h1>
-                <p>Event description</p>
-                <button>Tickets</button>
-            </div>
-            
-            <div class="event-club-2">
-                <h1> Event Title </h1>
-                <p>Event description</p>
-                <button>Tickets</button>
-            </div>
-            
-            <div class="event-club-2">
-                <h1> Event Title </h1>
-                <p>Event description</p>
-                <button>Tickets</button>
-            </div>
+            ${event}
         </section>
     </div>
     `
