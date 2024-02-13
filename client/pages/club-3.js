@@ -8,7 +8,7 @@ export default async function club3() {
     // -- create variable which will be html element rendered in frontend containing fetched event data
     let club3Event = '';
 
-    // loop through fetched result
+    // loop through fetched result..
     for (let i = 0; i < result.length; i++) {
         let data = result[i];
 
