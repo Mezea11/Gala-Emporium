@@ -33,7 +33,7 @@
 #sidebar-club2 {
     display: flex;
     position: fixed;
-    left: 0;
+    left: 1rem;
     font: bold;
     margin-top: 7rem;
     width: 19rem;
