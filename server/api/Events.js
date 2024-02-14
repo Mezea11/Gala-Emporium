@@ -35,7 +35,7 @@ export default function events(server) {
       }
     });
 
-    // Endpoint to create a new event and associate it with a club...
+    // Endpoint to create a new event and associate it with a club
     server.post('/api/events', async (req, res) => {
       try {
         const { title, description, clubId } = req.body;
@@ -94,7 +94,6 @@ export default function events(server) {
       return res.status(404).json({ error: 'Event not found' });
     }
 
-//      res.status(200).json(updatedItem);
       console.log('Event partially updated');
 
     } catch (error) {
