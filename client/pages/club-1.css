@@ -1,206 +1,153 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
 
-:root {
-    /* Main Colors */
-    --primary-color: #3D6CB9; /* Deep Blue */
-    --secondary-color: #5486D6; /* Lighter Blue */
-    --accent-color: #86BBD8; /* Pale Blue */
-    --background-color: #F5F5F5; /* Light Gray */
-    --text-color: #333333; /* Dark Gray */
-
-    /* Additional Colors */
-    --success-color: #2ECC71; /* Emerald Green */
-    --info-color: #3498DB; /* Dodger Blue */
-    --warning-color: #F39C12; /* Sunflower Yellow */
-    --error-color: #E74C3C; /* Alizarin Red */
-    --dark-color: #34495E; /* Wet Asphalt */
-    --light-color: #ECF0F1; /* Clouds */
-}
-
-
-
-  
-.ivy-container {
-    margin-top: auto; /* Push the main content down below the navbar */
-    flex-grow: 1; /* Make the container grow as needed */
-    padding: 20px; /* Add some spacing around the content */
+#club-1-container {
     display: flex;
+    flex-wrap: wrap; /* Allow items to wrap to a new line */
+    justify-content: space-between; /* Distribute items evenly along the main axis */
+    padding: 1rem;
     margin: auto;
-    height: auto;
-    background-color: rgba(3, 2, 15, 0.973);
-    justify-content: center;
-    align-items: stretch;
-  
+    background: rgb(7,8,2);
+    background: linear-gradient(89deg, rgba(7,8,2,1) 0%, rgba(85,52,19,1) 100%);
+    position: sticky;
 }
 
-.ivy-main-container {
-    margin-top: auto; /* Push the main content down below the navbar */
-    flex-grow: 1; /* Make the container grow as needed */
-    min-width: 600px; /* Set a maximum width for the container */
-    padding: 20px; /* Add some spacing around the content */
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 1 column for section cards */
-    grid-gap: 20px; /* spacing between grid items */
-    width: 100vh;
-    margin: auto;
-    height: auto;
-    font-family: "Playfair Display", serif !important;
-    font-weight: 400;
-    font-style: normal;
-}
-
-.ivy-section-container {
-    display: flex;
-    justify-content: center; /* Distribute the sections evenly along the row */
-    align-items: end; /* Stretch the sections vertically to fill any available space */
-    flex-direction: column; /* Stack the sections vertically */
-    border-radius: 10px;
-    row-gap: 20px;
-    margin-top: auto; /* Add this line */
-    margin-bottom: auto; /* Add this line */
-}
-
-#ivy-section {
-    background-color: white;
-    padding: 20px; /* Add padding to the section cards */
-    border-radius: 4px;
+#club-1-sidebar {
+    top: 2em;
+    position: sticky;
+    width: calc(25% - 2rem); /* Adjust width for responsiveness */
+    background-color: #f0f0f0;
+    padding: 1rem;
+    border-radius: 0px 0px 0px 50px;
+    -webkit-border-radius: 0px 0px 0px 50px;
+    -moz-border-radius: 0px 0px 0px 50px;
     box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.575);
-    width: 60vh;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items:  center;
+    height: 25%;
     text-align: center;
-    font-family: "Open Sans", sans-serif;
-    transition: all .2s ease-out;
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: "Lora", sans-serif;
 }
 
-#ivy-section:hover {
-    scale:  1.03; /* Scale up on hover */
-    transform: translateY(-8px); /* Move up slightly on hover */
-    box-shadow: 0 2px 6px 0 rgba(255, 255, 255, 0.637); /* Darker shadow on hover */
+#club-1-sidebar p {
+    font-family: "Great Vibes", cursive;
+}
+
+#club-1-about {
+    top: 2em;
+    position: sticky;
+    width: calc(25% - 2rem); /* Adjust width for responsiveness */
+    background-color: white;
+    border-radius: 10px;
+    padding: 1rem;
+    margin-top: 1rem;
+    font-size: small;
+    line-height: 1.5;
+    box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.575);
+    font-family: 'Great Vibes', cursive;
+    height: 25%;
+    background-image: url('../assets/ivy-about.jpg');
+    background-size: cover;
+}
+
+#club-1-about h1 {
+    font-size: 4rem;
+    color: white;
+    line-height: 1;
+    margin-bottom: 2rem;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.918);
+}
+#club-1-about h2 {
+    text-align: center;
+    font-family: "Lora", cursive !important;
+    color: white;
+}
+#club-1-about p {
+    width: 100%;
+    font-size: 15px;
+    font-family: "Lora", sans-serif;
+    text-align: center;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.541);
+    border-radius: 5px;
+}
+
+#event-container-club-1 {
+    width: calc(30% - 2rem); /* Adjust width for responsiveness */
+    margin-top: 1rem;
+}
+
+.event-club-1 {
+    width: 100%;
+    background-color: white;
+    border-radius: 5px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.575);
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-style: "Lora", sans serif;
     cursor: pointer;
 }
 
-#ivy-section  h2 {
-    color: #D8A059;
-    font-size: 1.5em;
-    font-weight: normal;
-    margin-bottom: 0;
-    margin-right: 1rem;
+.event-club-1:hover {
+    scale: calc(1.01);
+    transition: 0.3s ease-in-out;
 }
 
-.ivy-events {
-    padding: 1rem;
-    border: transparent;
-    border-radius: 5px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    height: auto;
-    width: fit-content;
-    font-size: small;
-    line-height: 1.3;
-    margin-bottom: 10px;
+.event-club-1 h2 {
+    font-size: medium;
+    color: #333333;
 }
 
-.ivy-events p {
-    color: #5a5959;
-}
-
-#ivy-section button {
-    background-color: #007bff; /* Blue background color */
-    color: #ffffff; /* White text color */
-    border: none; /* Remove border */
-    padding: 10px 20px; /* Add padding */
-    border-radius: 5px; /* Add rounded corners */
-    cursor: pointer; /* Add pointer cursor on hover */
-    transition: background-color 0.3s ease; /* Smooth transition */
-    margin-top: 10px;
-}
-
-#ivy-section button:hover {
-    background-color: #0056b3; /* Darker shade of blue */
-}
-
-/*  */
-
-.aside-container {
-    height: 25%;
-    width: auto;
-    display: flex;
-    justify-content: left;
-    margin-left: 0;
-    position: sticky;
-    top: 6em; /* Offset from the top of the page */
-    overflow: hidden;
-    
-}
-
-#ivy-aside-1{
-    background-color: white;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    padding: 20px; /* Add padding to the aside */
-    display: flex;
-    flex-direction: column;
-    width: 50%;
-    justify-content: center; 
-    align-items: center;
-    min-height: fit-content;
-    margin-bottom: 20px; /* Add margin bottom to create space between the aside elements */
-    margin-left: 15rem;
-    border-radius: 5px;
-    height: auto;
-}
-
-#ivy-aside-1 h2{
-    margin-bottom: 0;
-    color: #D8A058;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.877);
-    margin-top: 2rem;
-}
-#ivy-aside-1 h4{
-    margin-bottom: 0;
-    margin-top: 5px;
-}
-#ivy-aside-1 p{
+.event-club-1 p {
+    width: 75%;
     font-size: 14px;
-    line-height: 1.7;
-    max-width: 20rem;
-    color:  #5a5959;
-}
-#ivy-aside-1 img {
-    width: 100%; /* Make the image fill the width of its container */
-    height: auto;
-    border-radius: 5px; /* Add rounded corners to the image */
-    margin-bottom: 10px; /* Add some space below the image */
+    line-height: 1.4;
+    color: #666666;
 }
 
 
-/* Adjustments for tablets */
-@media only screen and (max-width: 768px) {
-    .ivy-main-container {
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Adjust as needed */
-    }
-
-    .aside-container {
-        flex-direction: column;
-        margin-left: 0;
-        top: auto;
-    }
-
-    #ivy-aside-1 {
-        width: 100%;
-        margin-left: 0;
-        margin-bottom: 20px;
-    }
+.event-club-1 button {
+    width: 20%;
+    height: 2rem;
+    border-radius: 4px;
+    background-color: #007bff;
+    border-color: transparent;
+    color: white;
 }
 
-/* Adjustments for mobile */
-@media only screen and (max-width: 480px) {
-    .ivy-main-container {
-        grid-template-columns: 1fr;
-    }
+.event-club-1 button:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+    background-color: #0056b3;
+}
 
-    .ivy-section-container {
-        padding: 0;
-    }
+.side-container {
+    background-color: black;
+}
+
+.club-1-booking button{
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-weight: bold;
+    transition: all .2s ease-in-out;
+    -webkit-transition: all .2s ease-in-out;
+    -moz-transition: all .2s ease-in-out;
+}
+
+.club-1-booking button:hover {
+    scale: calc(1.05);
+    cursor: pointer;
 }
