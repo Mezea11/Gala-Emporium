@@ -13,7 +13,7 @@ export default async function club4() {
             <h1>${data.title}</h1>
             <p>${data.description}</p>
         </div>
-      `    
+      `
 //      console.log(result);
     }
 

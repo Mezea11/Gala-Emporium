@@ -43,7 +43,7 @@ async function route() {
       break;
     case "booking":
       console.log("BOOKING");
-      $('main').html(booking())
+      $('main').html(await booking())
       break;
     default:
       console.log("404 You've broken the internet")
