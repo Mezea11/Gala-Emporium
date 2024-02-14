@@ -1,16 +1,16 @@
 // Import js-files from pages
-import home from "./pages/home.js";
-import about from "./pages/about.js";
-import login from "./pages/login.js";
-import club1 from "./pages/club-1.js"
-import club2 from "./pages/club-2.js"
-import club3 from "./pages/club-3.js"
-import club4 from "./pages/club-4.js"
-import booking from "./pages/booking.js";
+import home from './pages/home.js';
+import about from './pages/about.js';
+import login from './pages/login.js';
+import club1 from './pages/club-1.js';
+import club2 from './pages/club-2.js';
+import club3 from './pages/club-3.js';
+import club4 from './pages/club-4.js';
+import booking from './pages/booking.js';
 
 // Function to change "location"
 async function route() {
-  //console.log(location)
+    //console.log(location)
 
   switch (location.hash.replace('#', '')) {
     case "about":

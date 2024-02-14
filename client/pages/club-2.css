@@ -1,11 +1,72 @@
-
-#container { 
-    background-color: aqua;
-
-    p {
-        color: red;
-    }
-    
+#club-2-container {
+    background-image: url('../assets/valhall.jpg');
+    background-size: cover;
+    background-repeat: repeat;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-attachment: fixed;
+    width: 100%;
+    height: 100%;
 }
 
+#title-club2 {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 30%;
+    background-image: url("../assets/wood.jpg");
+    border-radius: 2rem;
+    
+    h1 {
+        font-size: 5rem;
+        margin: 1rem;
+      }
+    
+    h2 {
+        margin-top: 0;
+    }
+}
 
+#sidebar-club2 {
+    display: flex;
+    position: fixed;
+    left: 1rem;
+    font: bold;
+    margin-top: 7rem;
+    width: 19rem;
+    background-image: rgb(82, 79, 79);
+    flex-direction: column;
+    background-image: url("../assets/helmet.jpg");
+
+    p {
+        margin-left: 0.3rem;
+        margin-right: 0.1rem;
+        margin-bottom: 22rem;
+      }
+}
+
+#event-container-club-2 {
+    margin-top: 1rem;
+}
+
+.event-club-2 {
+    margin-bottom: 1.2rem;
+    width: 25rem;
+    background-image: url("../assets/stone.jpg");
+    border: black 0.3rem solid;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.event-club-2 button {
+    width: 3.5rem;
+    height: 2.5rem;
+    border-radius: 1rem;
+    background-color: rgb(4, 78, 23);
+    border-color: rgb(2, 32, 10);
+}
