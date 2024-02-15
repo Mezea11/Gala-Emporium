@@ -14,6 +14,7 @@ export default async function booking() {
       }
 
     return `
+      <section id="booking-page">
        <h1>Välkommen att boka dina biljetter här.</h1>
 
        <form id="booking" onsubmit="submitForm(); return false">
@@ -46,6 +47,7 @@ export default async function booking() {
     <div id="confirmBooking">
       <p>Thank you! We have sent an email confirming your booking.</p>
     </div>
+    </section>
     `
 }
 
