@@ -1,24 +1,7 @@
 import { adminsModel } from './Admins.js';
 
-export default async function () {
-    /*
-    server.post('api/login', async (req, res) => {
-        try {
-            const check = await adminsModel.findOne({
-                username: req.body.username,
-                password: req.body.password,
-            });
+export default function login (server) {
 
-            if (check.password === req.body.password) {
-                res.render('#club-2');
-            } else {
-                res.send('Wrong password. Please try again.');
-            }
-        } catch {
-            res.send('Wrong input. Please enter your username and password.');
-        }
-    });
-*/
     server.post('/api/login', async (req, res) => {
         if (req.session.login) {
             res.json({ message: `Denna användare verkar redan vara inloggad.` });
@@ -29,12 +12,22 @@ export default async function () {
             })
 
             if (admin) {
-                req.session.login = user._id;
-                res.json({ mysession: req.session, message: `Välkommen ${user.username }. Du är nu inloggad` })
-                //res.json(user)
+                req.session.login = admin._id;
+                res.json({ mysession: req.session, message: `Välkommen ${ admin.username }. Du är nu inloggad` })
+                //res.json(admin)
             } else {
-                res.json({ message: 'kan inte hitta användare' });
+                res.json({ message: 'användarnamn eller lösenord är felaktigt' });
             }
         }
     })
+    
+    server.get('/', (req, res) => {
+        if (req.session.page_views){
+          req.session.page_views++;
+          res.send(`Du har besökt denna sida ${req.session.page_views} gånger`);
+        } else {
+          req.session.page_views = 1;
+          res.send('Välkommen till denna sida för första gången!');
+        }
+      })
 }

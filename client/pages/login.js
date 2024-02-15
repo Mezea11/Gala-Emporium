@@ -52,12 +52,17 @@ async function submitLogin() {
             body: JSON.stringify(formData),
         });
 
-        console.log('1');
-        if (!response.ok) {
-            throw new Error('Login failed');
-        }
+        const data = await response.json();
 
-        console.log('successful login');
+        console.log('1');
+
+        if (response.ok) {
+            console.log(data.message);
+            window.location.href = '/#';
+
+        } else {
+            console.log('login failed');
+        }
     } catch (error) {
         console.error('Error submitting login:', error);
     }
