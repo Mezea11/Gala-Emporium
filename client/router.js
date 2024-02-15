@@ -7,6 +7,7 @@ import club2 from './pages/club-2.js';
 import club3 from './pages/club-3.js';
 import club4 from './pages/club-4.js';
 import booking from './pages/booking.js';
+import admin from './pages/admin.js';
 
 // Function to change "location"
 async function route() {
@@ -44,6 +45,10 @@ async function route() {
     case "booking":
       console.log("BOOKING");
       $('main').html(await booking())
+      break;
+    case "admin":
+      console.log("admin");
+      $('main').html(await admin())
       break;
     default:
       console.log("404 You've broken the internet")
