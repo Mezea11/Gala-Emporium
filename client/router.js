@@ -19,7 +19,7 @@ async function route() {
       break;
     case "":
       console.log("HOME")
-      $('main').html(home())
+      $('main').html(await home())
       break;
     case "login":
       console.log("LOGIN")
