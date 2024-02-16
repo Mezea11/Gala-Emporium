@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import {adminsModel, adminsSchema} from "./Admins.js"; // Assuming Admins.js exports the Admin model
+import {adminsModel, adminsSchema} from "./Admins.js"; // Admins.js exports the Admin model
 
 const clubsSchema = mongoose.Schema({
   club_name: String,
@@ -13,6 +13,16 @@ export default function clubs(server) {
     console.log("HELLO123")
     const clubs = await Club.find();
     res.json(clubs);
+  });
+
+  server.get('/api/clubs/:adminId', async (req, res) => {
+    try {
+      const { adminId } = req.params;
+      const clubs = await Club.find({ adminId });
+      res.json(clubs);
+    } catch (error) {
+      res.status(500).json({ error: 'Internal Server Error' });
+    }
   });
 
   server.post('/api/clubs', async (req, res) => {
