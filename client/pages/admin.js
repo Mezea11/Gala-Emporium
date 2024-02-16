@@ -1,9 +1,12 @@
-export default async function admin() {
+import { adminId } from "./login.js";
 
-    const response1 = await fetch('/api/clubs/65c4e5fae1bd3c6cadb76197')
-    const result = await response1.json()
-//    const response = await fetch('/api/events/')
-//    const result = await response.json()
+export default async function admin() {
+    
+    console.log(adminId);
+    
+    const response = await fetch('/api/clubs/')
+    const result = await response.json()
+
     console.log('hello world')
     let myEvent = ''
 
@@ -12,7 +15,7 @@ export default async function admin() {
        let data = result[i];
 
        myEvent += `
-       <h2>${data.username}</h2>
+       <h2>${data.club_name}</h2>
           `
        }
 

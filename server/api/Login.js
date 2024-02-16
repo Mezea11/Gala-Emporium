@@ -30,4 +30,17 @@ export default function login (server) {
           res.send('Välkommen till denna sida för första gången!');
         }
       })
+
+      server.delete('/api/login', async(req, res) => {
+        try{
+            if (req.session.login) {
+                delete req.session.login
+                res.json( { message: 'du är nu utloggad' })
+            } else {
+            res.json({ message: 'Det verkar inte vara någon inloggad'})
+            } 
+        } catch (error) {
+            res.status(500).json({ error: 'Internal Server Error' });
+          }
+    })
 }

@@ -29,6 +29,9 @@ export default function login() {
 -- if false, feedback 
 -- if true, go to page for admin as logged in
  */
+
+export let adminId;
+
 async function submitLogin() {
     let form = $('#loginForm');
 
@@ -53,18 +56,17 @@ async function submitLogin() {
         });
 
         const data = await response.json();
-
-        console.log('1');
-
+        
         if (response.ok) {
             console.log(data.message);
-            window.location.href = '/#';
+            adminId = data.mysession.login;
+            window.location.href = '/#admin';
 
         } else {
             console.log('login failed');
         }
     } catch (error) {
-        console.error('Error submitting login:', error);
+        console.error('Error submitting login');
     }
 }
 
