@@ -5,7 +5,12 @@ import mongoose from "mongoose";
 const eventsSchema = mongoose.Schema({
   title: String,
   description: String,
-  clubId: { type: mongoose.Schema.Types.ObjectId, ref: "clubs" } // Reference clubs model
+  clubId: { type: mongoose.Schema.Types.ObjectId, ref: "clubs" },// Reference clubs model
+  date: {
+    type: Date,
+    required: true
+  },
+  available_tickets: Number
 });
 
 // Create the events model
