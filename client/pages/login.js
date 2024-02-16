@@ -31,7 +31,7 @@ export default function login() {
  */
 
 export let adminId;
-
+export let formData;
 async function submitLogin() {
     let form = $('#loginForm');
 
@@ -43,7 +43,7 @@ async function submitLogin() {
         return;
     }
 
-    let formData = {
+    formData = {
         username: username,
         password: password,
     };

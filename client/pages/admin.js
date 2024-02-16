@@ -1,29 +1,38 @@
-import { adminId } from "./login.js";
+import { adminId, formData } from "./login.js";
 
 export default async function admin() {
     
     console.log(adminId);
     
-    const response = await fetch('/api/clubs/')
+    const response = await fetch('/api/clubs/'+ adminId)
     const result = await response.json()
 
     console.log('hello world')
-    let myEvent = ''
+    let myClubs = ''
+    let clubArray = [];
+    
+    //let firstClub = result[0]
+    //let secondCLub = result[1]
 
     for (let i = 0; i < result.length; i++) {
-
-       let data = result[i];
-
-       myEvent += `
-       <h2>${data.club_name}</h2>
-          `
+        let data = result[i];
+        clubArray.push(data._id);
        }
 
-
- return `
+    console.log(clubArray);
+    
+    const response1 = await fetch('/api/events/'+ clubArray[0])
+    const result1 = await response1.json()
+    const response2= await fetch('/api/events/'+ clubArray[1])
+    const result2 = await response2.json()
+    
+    console.log(result1);
+    console.log(result2);
+return `
     <section id="admin-container">
+        <button onclick="logOut();">Log out</button>
         <article class="event-container-admin">
-            ${myEvent}
+            ${myClubs}
         </article>
             
         <form id="booking" onsubmit="submitForm(); return false">
@@ -34,6 +43,17 @@ export default async function admin() {
     </section>
  `
 }
+
+async function logOut() {
+        const response = await fetch('/api/login', {
+        method: 'DELETE',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData)
+      });
+
+      window.location.href = '/#login';
+      console.log("hopefully we will log out...")
+      };
 
 async function postEvent() {
 
@@ -73,3 +93,4 @@ async function postEvent() {
        console.error('Error submitting event:', error);
    }
 }
+window.logOut = logOut;
