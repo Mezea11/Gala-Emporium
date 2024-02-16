@@ -8,12 +8,43 @@ export default async function admin() {
     const result = await response.json()
 
     console.log('hello world')
-    let myClubs = ''
-    let clubArray = [];
+    //let clubArray = [];
     
-    //let firstClub = result[0]
-    //let secondCLub = result[1]
+    let clubArray = result.map(data => data._id);
+    console.log(clubArray);
+    
+    // Fetch event data for all clubs concurrently
+    const eventPromises = clubArray.map(clubId => fetch('/api/events/' + clubId));
+    const eventResponses = await Promise.all(eventPromises);
+    const eventResults = await Promise.all(eventResponses.map(response => response.json()));
 
+    // eventResults is now an array of event data for each club
+    console.log(eventResults);
+    let myClubs = '';
+
+    for (let i = 0; i < result.length; i++) {
+        let data = result[i];
+
+        myClubs += `
+        <option value="${data._id}">${data.club_name}</option>
+        `;   
+    }
+    
+    let myEvent = '';
+
+    for (let i = 0; i < eventResults.length; i++) {
+        let eventsForClub = eventResults[i];
+
+        for (let j = 0; j < eventsForClub; j++) {
+            let data = eventsForClub[j];
+
+            myEvent += `
+            <option value="${data._id}">${data.title}</option>
+            `;
+        }
+
+    }
+    /*
     for (let i = 0; i < result.length; i++) {
         let data = result[i];
         clubArray.push(data._id);
@@ -28,20 +59,38 @@ export default async function admin() {
     
     console.log(result1);
     console.log(result2);
-return `
-    <section id="admin-container">
-        <button onclick="logOut();">Log out</button>
-        <article class="event-container-admin">
-            ${myClubs}
-        </article>
+    */
+    return `
+        <section id="admin-container">
+            <button onclick="logOut();">Log out</button>
+            <section id="create-event-container">
+                <h1>Create new event here:</h1>
+                <form id="newEventForm" onsubmit="postEvent(); return false" >
+                    <input type="text" name="eventTitle" placeholder="Enter event title">
+                    <input type="text" name="eventDescription" placeholder="Describe the event">
+                    <select id="choose-club" name="clubId">
+                    ${myClubs}
+                    </select>
+                    <!-- date and time -->
+                    <input type="number" placeholder="Enter amount of bookable tickets">
+                    
+                    <button type="submit">Create new event!</button>
+                </form>
+            </section> 
             
-        <form id="booking" onsubmit="submitForm(); return false">
-            <input type="text" name="title" placeholder="Event name">
-            <input type="text" name="description" placeholder="Event description">
+            <article class="event-container-admin">
+                
+            </article>
             
-        </form>
-    </section>
- `
+            <form id="booking" onsubmit="submitForm(); return false">
+                <input type="text" name="title" placeholder="Event name">
+                <input type="text" name="description" placeholder="Event description">
+                <select id="choose-club" name="clubId">
+                ${myEvent}
+                </select>
+            </form>
+        </section>
+    `
 }
 
 async function logOut() {
@@ -51,29 +100,29 @@ async function logOut() {
         body: JSON.stringify(formData)
       });
 
-      window.location.href = '/#login';
-      console.log("hopefully we will log out...")
-      };
+    window.location.href = '/#login';
+    console.log("hopefully we will log out...")
+};
 
 async function postEvent() {
 
-   let form = $( "#newEvent" );
+   let form = $( "#newEventForm" );
 
-   var title = form.find('[name="title"]').val();
-   var description = form.find('[name="description"]').val();
-   var clubId = form.find('[name="clubId"]').val();
+   var title = form.find('[name="eventTitle"]').val();
+   var description = form.find('[name="eventDescription"]').val();
+   //var clubId = form.find('[name="clubId"]').val();
    //var tickets = form.find('[name="tickets"]').val();
 
-   if (!title || !description) {
-      console.error("Title or description is empty");
-      return;
-  }
+   if (!eventTitle || !eventDescription) {
+        console.error("Title or description is empty");
+        return;
+    }
 
    let formData = {
-      title: title,
-      description: description,
-      clubtId: clubId,
-      //tickets: tickets
+        title: title,
+        description: description,
+        clubId: clubId,
+        //tickets: tickets
     }
 
    try {
@@ -93,4 +142,5 @@ async function postEvent() {
        console.error('Error submitting event:', error);
    }
 }
+window.postEvent = postEvent;
 window.logOut = logOut;
