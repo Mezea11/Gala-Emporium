@@ -43,8 +43,8 @@ export default function events(server) {
     // Endpoint to create a new event and associate it with a club
     server.post('/api/events', async (req, res) => {
       try {
-        const { title, description, clubId } = req.body;
-        const newEvent = new eventsModel({ title, description, clubId });
+        const { title, description, clubId, date, available_tickets } = req.body;
+        const newEvent = new eventsModel({ title, description, clubId, date, available_tickets });
         const savedEvent = await newEvent.save();
         res.status(201).json(savedEvent);
       } catch (error) {

@@ -68,11 +68,16 @@ export default async function admin() {
                 <form id="newEventForm" onsubmit="postEvent(); return false" >
                     <input type="text" name="eventTitle" placeholder="Enter event title">
                     <input type="text" name="eventDescription" placeholder="Describe the event">
+                    <!--<input type="file" id="imageInput" name="image" accept="image/*">-->
+                    <label for="eventDate">Event Date:</label>
+                    <input type="date" id="eventDate" name="eventDate">
+                    <label for="eventTime">Event Time:</label>
+                    <input type="time" id="eventTime" name="eventTime">
                     <select id="choose-club" name="clubId">
-                    ${myClubs}
+                        ${myClubs}
                     </select>
                     <!-- date and time -->
-                    <input type="number" placeholder="Enter amount of bookable tickets">
+                    <input type="number" name="tickets" placeholder="Enter amount of bookable tickets">
                     
                     <button type="submit">Create new event!</button>
                 </form>
@@ -82,11 +87,12 @@ export default async function admin() {
                 
             </article>
             
-            <form id="booking" onsubmit="submitForm(); return false">
+            <form id="#newPostform" onsubmit="submitForm(); return false">
                 <input type="text" name="title" placeholder="Event name">
                 <input type="text" name="description" placeholder="Event description">
+                <!--<input type="file" id="imageInput" name="image" accept="image/*">-->
                 <select id="choose-club" name="clubId">
-                ${myEvent}
+                ${myClubs}
                 </select>
             </form>
         </section>
@@ -105,15 +111,25 @@ async function logOut() {
 };
 
 async function postEvent() {
+//   let imageInput = $( "imageInput" ); 
+    let form = $( '#newEventForm' );
 
-   let form = $( "#newEventForm" );
+    var title = form.find('[name="eventTitle"]').val();
+    var description = form.find('[name="eventDescription"]').val();
+    var clubId = form.find('[name="clubId"]').val();
+    var tickets = form.find('[name="tickets"]').val();
+    var eventDate = form.find('[name="eventDate"]').val();
+    var eventTime = form.find('[name="eventTime"]').val();
+    var date = new Date(eventDate + ' ' + eventTime);
 
-   var title = form.find('[name="eventTitle"]').val();
-   var description = form.find('[name="eventDescription"]').val();
+//   if (imageInput.files.length > 0) {
+//    var image = form.find('[name="image"]').val();
+//    formData.append('image', imageInput.files[0]);
+//}
    //var clubId = form.find('[name="clubId"]').val();
    //var tickets = form.find('[name="tickets"]').val();
 
-   if (!eventTitle || !eventDescription) {
+   if (!title || !description || !eventDate || !eventTime || !tickets) {
         console.error("Title or description is empty");
         return;
     }
@@ -122,7 +138,8 @@ async function postEvent() {
         title: title,
         description: description,
         clubId: clubId,
-        //tickets: tickets
+        date: date,
+        available_tickets: tickets
     }
 
    try {
@@ -142,5 +159,6 @@ async function postEvent() {
        console.error('Error submitting event:', error);
    }
 }
+
 window.postEvent = postEvent;
 window.logOut = logOut;
