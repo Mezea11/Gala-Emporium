@@ -105,9 +105,11 @@ export default async function admin() {
                     <input type="date" id="eventDateUp" name="eventDate">
                     <label for="eventTime">Event Time:</label>
                     <input type="time" id="eventTimeUp" name="eventTime">
-                <select id="choose-club" name="clubId">
+                <select id="choose-clubUp" name="clubId">
                 ${myClubs}
                 </select>
+
+                <input type="number" name="tickets" id="ticketsUp" placeholder="Enter amount of bookable tickets">
                 <button type="submit">Update event!</button>
             </form>
         </section>
@@ -128,10 +130,8 @@ async function populateForm() {
         let timeString = date.getHours().toString().padStart(2, '0') + ':' + date.getMinutes().toString().padStart(2, '0');
         $('#eventDateUp').val(dateString);
         $('#eventTimeUp').val(timeString);
-        //$('#updateEventform input[name="eventDate"]').val(eventData.eventDate);
-        //$('#updateEventform input[name="eventTime"]').val(eventData.eventTime);
-        console.log('hello')
-        //$('#updateEventform select[name="clubId"]').val(eventData.clubId);
+        $('#choose-clubUp').val(selectedEvent.clubId);
+        $('#ticketsUp').val(selectedEvent.available_tickets);
     }
 }
 
