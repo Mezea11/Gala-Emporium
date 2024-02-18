@@ -1,5 +1,5 @@
 import { adminId, formData } from "./login.js";
-
+var allEvents = [];
 export default async function admin() {
     
     console.log(adminId);
@@ -10,7 +10,13 @@ export default async function admin() {
     console.log('hello world')
     //let clubArray = [];
     
-    let clubArray = result.map(data => data._id);
+    //let clubArray = result.map(data => data._id);
+    let clubArray;
+    if (Array.isArray(result)) {
+        clubArray = result.map(data => data._id);
+    } else {
+        clubArray = [result._id];
+    }
     console.log(clubArray);
     
     // Fetch event data for all clubs concurrently
@@ -32,17 +38,19 @@ export default async function admin() {
     
     let myEvent = '';
 
+    
     for (let i = 0; i < eventResults.length; i++) {
         let eventsForClub = eventResults[i];
-
-        for (let j = 0; j < eventsForClub; j++) {
+        
+        for (let j = 0; j < eventsForClub.length; j++) {
             let data = eventsForClub[j];
-
+            allEvents.push(data);
             myEvent += `
             <option value="${data._id}">${data.title}</option>
             `;
+            //console.log(myEvent);
         }
-
+        
     }
     /*
     for (let i = 0; i < result.length; i++) {
@@ -68,7 +76,6 @@ export default async function admin() {
                 <form id="newEventForm" onsubmit="postEvent(); return false" >
                     <input type="text" name="eventTitle" placeholder="Enter event title">
                     <input type="text" name="eventDescription" placeholder="Describe the event">
-                    <!--<input type="file" id="imageInput" name="image" accept="image/*">-->
                     <label for="eventDate">Event Date:</label>
                     <input type="date" id="eventDate" name="eventDate">
                     <label for="eventTime">Event Time:</label>
@@ -87,16 +94,45 @@ export default async function admin() {
                 
             </article>
             
-            <form id="#newPostform" onsubmit="submitForm(); return false">
-                <input type="text" name="title" placeholder="Event name">
-                <input type="text" name="description" placeholder="Event description">
-                <!--<input type="file" id="imageInput" name="image" accept="image/*">-->
+            <form id="#updateEventform" onsubmit="submitForm(); return false">
+                <label for="events">Välj evenemang:</label>
+                <select id="choose-event" name="eventId" onchange="populateForm();">
+                    ${myEvent}
+                </select>    
+                <input type="text" id="title-input" name="title" placeholder="Event name">
+                <input type="text" id="description-input" name="description" placeholder="Event description">
+                <label for="eventDate">Event Date:</label>
+                    <input type="date" id="eventDateUp" name="eventDate">
+                    <label for="eventTime">Event Time:</label>
+                    <input type="time" id="eventTimeUp" name="eventTime">
                 <select id="choose-club" name="clubId">
                 ${myClubs}
                 </select>
+                <button type="submit">Update event!</button>
             </form>
         </section>
     `
+}
+
+async function populateForm() {
+    let selectedEventId = $('#choose-event').val();
+    
+    const selectedEvent = allEvents.find(event => event._id === selectedEventId);
+    console.log(selectedEvent);
+    if (selectedEvent) {
+        $('#title-input').val(selectedEvent.title);
+        $('#description-input').val(selectedEvent.description);
+        let date = new Date (selectedEvent.date);
+        //console.log(date);
+        let dateString = date.getFullYear().toString().padStart(4, '0') + '-' + (date.getMonth()+1).toString().padStart(2, '0') + '-' + date.getDate().toString().padStart(2, '0');
+        let timeString = date.getHours().toString().padStart(2, '0') + ':' + date.getMinutes().toString().padStart(2, '0');
+        $('#eventDateUp').val(dateString);
+        $('#eventTimeUp').val(timeString);
+        //$('#updateEventform input[name="eventDate"]').val(eventData.eventDate);
+        //$('#updateEventform input[name="eventTime"]').val(eventData.eventTime);
+        console.log('hello')
+        //$('#updateEventform select[name="clubId"]').val(eventData.clubId);
+    }
 }
 
 async function logOut() {
@@ -111,7 +147,7 @@ async function logOut() {
 };
 
 async function postEvent() {
-//   let imageInput = $( "imageInput" ); 
+
     let form = $( '#newEventForm' );
 
     var title = form.find('[name="eventTitle"]').val();
@@ -121,13 +157,6 @@ async function postEvent() {
     var eventDate = form.find('[name="eventDate"]').val();
     var eventTime = form.find('[name="eventTime"]').val();
     var date = new Date(eventDate + ' ' + eventTime);
-
-//   if (imageInput.files.length > 0) {
-//    var image = form.find('[name="image"]').val();
-//    formData.append('image', imageInput.files[0]);
-//}
-   //var clubId = form.find('[name="clubId"]').val();
-   //var tickets = form.find('[name="tickets"]').val();
 
    if (!title || !description || !eventDate || !eventTime || !tickets) {
         console.error("Title or description is empty");
@@ -160,5 +189,6 @@ async function postEvent() {
    }
 }
 
+window.populateForm = populateForm;
 window.postEvent = postEvent;
 window.logOut = logOut;
