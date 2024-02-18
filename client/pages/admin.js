@@ -88,17 +88,17 @@ export default async function admin() {
                     
                     <button type="submit">Create new event!</button>
                 </form>
-            </section> 
+            </section>
             
             <article class="event-container-admin">
                 
             </article>
             
-            <form id="#updateEventform" onsubmit="submitForm(); return false">
+            <form id="updateEventform" onsubmit="submitUpdate(); return false">
                 <label for="events">Välj evenemang:</label>
                 <select id="choose-event" name="eventId" onchange="populateForm();">
                     ${myEvent}
-                </select>    
+                </select>
                 <input type="text" id="title-input" name="title" placeholder="Event name">
                 <input type="text" id="description-input" name="description" placeholder="Event description">
                 <label for="eventDate">Event Date:</label>
@@ -106,7 +106,7 @@ export default async function admin() {
                     <label for="eventTime">Event Time:</label>
                     <input type="time" id="eventTimeUp" name="eventTime">
                 <select id="choose-clubUp" name="clubId">
-                ${myClubs}
+                    ${myClubs}
                 </select>
 
                 <input type="number" name="tickets" id="ticketsUp" placeholder="Enter amount of bookable tickets">
@@ -125,7 +125,7 @@ async function populateForm() {
         $('#title-input').val(selectedEvent.title);
         $('#description-input').val(selectedEvent.description);
         let date = new Date (selectedEvent.date);
-        //console.log(date);
+        console.log(date);
         let dateString = date.getFullYear().toString().padStart(4, '0') + '-' + (date.getMonth()+1).toString().padStart(2, '0') + '-' + date.getDate().toString().padStart(2, '0');
         let timeString = date.getHours().toString().padStart(2, '0') + ':' + date.getMinutes().toString().padStart(2, '0');
         $('#eventDateUp').val(dateString);
@@ -145,6 +145,55 @@ async function logOut() {
     window.location.href = '/#login';
     console.log("hopefully we will log out...")
 };
+
+async function submitUpdate() {
+    let form = $( '#updateEventform' );
+
+    let eventId = $('#choose-event').val();
+
+    console.log(eventId);
+
+    var title = form.find('[name="title"]').val();
+    var description = form.find('[name="description"]').val();
+    var clubId = form.find('[name="clubId"]').val();
+    var tickets = form.find('[name="tickets"]').val();
+    var eventDate = form.find('[name="eventDate"]').val();
+    var eventTime = form.find('[name="eventTime"]').val();
+    var date = new Date(eventDate + ' ' + eventTime);
+
+    if (!title || !description || !eventDate || !eventTime || !tickets) {
+        console.error("Title or description is empty");
+        return;
+    }
+
+    let formData = {
+        title: title,
+        description: description,
+        clubId: clubId,
+        date: date,
+        available_tickets: tickets
+    }
+
+    try {
+        const response = await fetch('/api/events/' + eventId, {
+          method: 'PATCH',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(formData)
+        });
+ 
+        if (!response.ok) {
+            throw new Error('Failed to submit event');
+        }
+ 
+        $('#confirmEvent').show();
+        console.log('Event successfully updated');
+        
+    } catch (error) {
+        console.error('Error updating event:', error);
+    }
+    console.log(formData);
+ }
+
 
 async function postEvent() {
 
@@ -187,8 +236,10 @@ async function postEvent() {
    } catch (error) {
        console.error('Error submitting event:', error);
    }
+   console.log(formData);
 }
 
 window.populateForm = populateForm;
+window.submitUpdate = submitUpdate;
 window.postEvent = postEvent;
 window.logOut = logOut;
