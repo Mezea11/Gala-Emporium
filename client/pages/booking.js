@@ -31,6 +31,7 @@ export default async function booking() {
 
        <label for="events">Välj evenemang:</label>
        <select id="choose-event" name="eventId" onchange="populateTickets();">
+       <option value="" disabled selected>Choose an event</option>
           ${fetchedEvents}
        </select>
  
@@ -73,8 +74,6 @@ async function populateTickets() {
     if (selectedEvent) {
         ticketCount = selectedEvent.available_tickets;
         $('#available-tickets').text(ticketCount);
-//        $('#available-tickets').text(selectedEvent.available_tickets);
-
     }
 }
 
@@ -93,8 +92,8 @@ async function updateTicketCount() {
         console.log('not enough available tickets');
         $("#notEnoughTickets").show();
         $("#confirmBooking").hide();
-        return;
-    }
+        return false;
+      }
     
     try {
         const response = await fetch('/api/events/'+ eventId, {
@@ -107,11 +106,11 @@ async function updateTicketCount() {
             throw new Error('Failed to submit form');
         }
 
-        $("#confirmBooking").show();
-        $("#notEnoughTickets").hide();
-        console.log("Form submitted successfully");
+        return true;
+
         } catch (error) {
             console.error('Error submitting form:', error);
+            return false;
     }
 }
 
@@ -136,8 +135,8 @@ async function submitForm() {
     };
 
     try {
-      updateTicketCount();
-        try {
+        let ticketCountValid = await updateTicketCount();
+          if (ticketCountValid) {
           const response = await fetch("/api/booking", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
@@ -147,14 +146,25 @@ async function submitForm() {
           if (!response.ok) {
             throw new Error("Failed to submit form");
           }
-
-        } catch (error) {
-          console.error("Error submitting form:", error);
-        }
       
+        $("#confirmBooking").show();
+        $("#notEnoughTickets").hide();
+        console.log("Form submitted successfully");
+        await resetForm();
+      } else {
+        console.log("Ticket count validation failed");
+      }
     } catch (error) {
       console.error("Error submitting form:", error);
     }
+}
+
+async function resetForm() {
+  let form = $('#booking');
+  form.find('[name="name"]').val('');
+  form.find('[name="email"]').val('');
+  form.find('[name="eventId"]').val('');
+  form.find('[name="tickets"]').val('');
 }
 
 window.updateTicketCount = updateTicketCount;
