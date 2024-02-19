@@ -33,3 +33,7 @@
 #available-tickets {
     font-size: 1em;
 }
+
+#confirmBookingId {
+    color: darkorange;
+}

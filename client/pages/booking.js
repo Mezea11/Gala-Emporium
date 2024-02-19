@@ -59,7 +59,7 @@ export default async function booking() {
   </div>
     
     <div id="confirmBooking">
-      <p>Thank you! We have sent an email confirming your booking.</p>
+      <p>Thank you! We have sent an email confirming your booking. Please save your reference number: <span id="confirmBookingId"></span> </p>
     </div>
     </section>
     `;
@@ -146,11 +146,16 @@ async function submitForm() {
           if (!response.ok) {
             throw new Error("Failed to submit form");
           }
-      
-        $("#confirmBooking").show();
-        $("#notEnoughTickets").hide();
-        console.log("Form submitted successfully");
-        await resetForm();
+
+          let responseData = await response.json();
+          let bookingId = responseData._id;
+          
+          $("#confirmBooking").show();
+          $("#notEnoughTickets").hide();
+          $("#confirmBookingId").text(` ${bookingId}`);
+          console.log("Form submitted successfully");
+
+          await resetForm();
       } else {
         console.log("Ticket count validation failed");
       }
