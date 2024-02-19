@@ -29,16 +29,7 @@ export default function events(server) {
     }
     });
     //get 1 event by id
-/*
-    server.get('/api/events/:id', async (req, res) => {
-      const id = req.params.id;
-      const event = await eventsModel.findById(id);
-      // Logik för att uppdatera item med angivet id
-      res.status(200).json( { event });
-      
-      console.log('got request');
-    });
-*/
+    
     // Endpoint to get events associated with a specific club
     server.get('/api/events/:clubId', async (req, res) => {
       try {
