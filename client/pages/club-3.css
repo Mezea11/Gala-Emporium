@@ -1,11 +1,90 @@
+/* Import fonts */
+@import url('https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@100;300;400;900&display=swap');
 
-#container { 
-    background-color: aqua;
+/* 
+Club colors:
+#293431; dark
+#f8f7e5; light
+#eda651; light orange
+#cf6f38; dark orange
+#4b3a63; dark purple
 
-    p {
-        color: red;
+*/
+
+/* general club page styles and container */
+#club-3-container {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    gap: 2em;
+    padding: 2em 10em;
+    background-color: #f8f7e5;
+
+    /* Font styles */
+    font-family: 'Londrina Solid', sans-serif;
+
+    h1 {
+        font-size: 8em;
+        font-weight: 900;
+        margin: none;
     }
-    
+    h2 {
+        font-size: 4em;
+        font-weight: 400;
+    }
+    h3 {
+        font-size: 2em;
+        font-weight: 400;
+    }
+    p {
+        font-size: 2em;
+        font-weight: 300;
+    }
 }
 
+/* About container*/
+#about-club3 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #293431;
+    color: #cf6f38;
+    padding: 2em;
+    border-radius: 1em;
+}
 
+/* Calender container */
+#calender-club3 {
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+    padding: 2em;
+    background-color: #293431;
+    border-radius: 1em;
+}
+
+#calender-club3 h2 {
+    text-align: center;
+    color: #cf6f38;
+}
+
+.event-club3 {
+    display: flex;
+    flex-direction: row;
+    background-color: #f8f7e5;
+    padding: 1em;
+}
+
+.event-club3 button {
+    background-color: #cf6f38;
+    border-style: none;
+    border-radius: 1em;
+    padding: 1em;
+}
+
+/* Animations */
+.event-club3 button:hover {
+    background-color: #eda651;
+}
