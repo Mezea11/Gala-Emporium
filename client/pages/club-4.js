@@ -2,21 +2,27 @@ export default async function club4() {
     const response = await fetch('/api/events/65ca1005dd4d79add97d34c6') //clubId: 65ca1005dd4d79add97d34c6
     const result = await response.json()
 
-    let anything = ''
+    let myEvents = ''
 
     for (let i = 0; i < result.length; i++) {
 
         let data = result[i];
+        console.log(data.date);
+        let date = new Date (data.date);
         
-        anything += `
+        let dateString = date.getFullYear().toString().padStart(4, '0') + '-' + (date.getMonth()+1).toString().padStart(2, '0') + '-' + date.getDate().toString().padStart(2, '0');
+        let timeString = date.getHours().toString().padStart(2, '0') + ':' + date.getMinutes().toString().padStart(2, '0');
+        
+        myEvents += `
         <div class="event-club-4">
-            <span> 2024-04-15 20:00 </span>
-            <h1>${data.title}</h1>
-            <p>${data.description}</p>
+            <span>${ dateString }</span>
+            <span>${ timeString }</span>
+            <h1>${ data.title }</h1>
+            <p>${ data.description }</p>
             <button>Tickets</button>
         </div>
       `
-//      console.log(result);
+
     }
 
       return `
@@ -36,7 +42,7 @@ export default async function club4() {
         </section>
 
         <section id="event-container-club-4">
-            ${anything}
+            ${myEvents}
         </section>
         `
     }
