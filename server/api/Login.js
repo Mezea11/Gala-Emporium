@@ -27,15 +27,11 @@ export default function login(server) {
         }
     });
 
-    server.get('/', (req, res) => {
-        if (req.session.page_views) {
-            req.session.page_views++;
-            res.send(
-                `Du har besökt denna sida ${req.session.page_views} gånger`
-            );
+    server.get('/api/admin', (req, res) => {
+        if (!req.session.login) {
+            res.send( `Du har inte behörighet att ses denna sida`);
         } else {
-            req.session.page_views = 1;
-            res.send('Välkommen till denna sida för första gången!');
+            res.send('Välkommen!');
         }
       })
 
