@@ -2,17 +2,30 @@ export default async function club1() {
   const response = await fetch('/api/events/65c4e75412df1cd5059cdd46') //clubId: 65c4e75412df1cd5059cdd46
   const result = await response.json()
 
+  result.sort((a, b) => new Date(a.date) - new Date(b.date));
+
   let club1Events = ''
 
   for (let i = 0; i < result.length; i++) {
 
       let data = result[i];
       
+      const eventDate = new Date(data.date).toLocaleString('en-SE', {
+        weekday: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+        hour: 'numeric',
+        minute: 'numeric'
+    });
+    
+
       club1Events += `
       <div class="event-club-1">
           <h2>${data.title}</h2>
           <p>${data.description}</p>
-          <button>Book Tickets</button>
+          <h3>${eventDate}</h3>
+          <button><a href="#booking">Book Tickets</a></button>
       </div>
     `    
 //      console.log(result);
@@ -27,7 +40,6 @@ export default async function club1() {
       </section>
 
       <section id="event-container-club-1">
-      
           ${club1Events}
       </section>      
       <section id="club-1-sidebar">

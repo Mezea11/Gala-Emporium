@@ -123,6 +123,12 @@
     background-color: #007bff;
     border-color: transparent;
     color: white;
+    text-decoration: none;
+}
+
+.event-club-1 button a {
+    text-decoration: none;
+    color: inherit;
 }
 
 .event-club-1 button:hover {
