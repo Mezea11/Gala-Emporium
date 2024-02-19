@@ -1,0 +1,26 @@
+#booking-page {
+    display: flex;
+    flex-direction: column;
+    
+}
+
+#booking-page h1 {
+    align-items: center;
+ }
+
+ #booking-page form {
+    align-self: center;
+    width: 20rem;
+    flex-grow: 1;
+}
+
+#booking-page form * {
+    padding: 0.5rem;
+    margin-bottom: 0.3rem;
+}
+
+#confirmBooking {
+    color: forestgreen;
+    align-items: center;
+    display: none;
+}

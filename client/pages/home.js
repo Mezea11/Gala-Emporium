@@ -9,29 +9,29 @@ export default function home() {
              <button>Book Tickets</button>
          </div>
 
-         <div class="event">
-           <h3>Event Name</h3>
-           <p>Description of the event.</p>
-           <button>Book Tickets</button>
-       </div>
+    <div class="event">
+        <h3>Event Name</h3>
+        <p>Description of the event.</p>
+        <button>Book Tickets</button>
+    </div>
        
-       <div class="event">
+    <div class="event">
          <h3>Event Name</h3>
          <p>Description of the event.</p>
          <button>Book Tickets</button>
-     </div>
+    </div>
      
-     <div class="event">
+    <div class="event">
        <h3>Event Name</h3>
        <p>Description of the event.</p>
        <button>Book Tickets</button>
-   </div>
+    </div>
    
-   <div class="event">
+    <div class="event">
      <h3>Event Name</h3>
      <p>Description of the event.</p>
      <button>Book Tickets</button>
- </div>
+    </div>
        </section>
        
        <aside class="sidebar">

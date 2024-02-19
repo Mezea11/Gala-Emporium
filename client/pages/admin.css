@@ -1,0 +1,13 @@
+#admin-container {
+    margin: auto;
+}
+
+#edit-event-container{
+    display: flex;
+    flex-direction: column;
+}
+
+#create-event-container{
+    display: flex;
+    flex-direction: column;
+}
