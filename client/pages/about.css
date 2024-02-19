@@ -1,0 +1,53 @@
+#about-container {
+    background-image: url('../assets/teater.jpeg');
+    background-size: cover;
+    background-repeat: repeat;
+    background-attachment: fixed;
+    
+}
+
+#about-container h1 {
+    font-family: "Protest Riot", sans-serif;
+    color: #012c57;
+    width: 100%;
+    text-align: center;
+    font-size: xx-large;
+} 
+
+#Panes {
+    background-color: rgba(242, 168, 32, 0.824);
+    color: #012c57;
+    width: fit-content;
+    margin: 7rem;
+    padding: 1rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    font-family: "Wellfleet", monospace;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    
+}
+
+.pane-block {
+    background-color: rgba(106, 142, 35, 0.632);
+    width: 40%; /* Adjust the width as needed */
+    margin: 1rem;
+    padding: 1rem;
+    border-radius: 1rem;
+    border: 0.3rem solid #012c57;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    box-sizing: border-box;
+    text-align: left;
+}
+
+#contact h2 {
+    text-align: center;
+
+}
+
+#contact {
+    width: 50%;
+    text-align: center;
+}

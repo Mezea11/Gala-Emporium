@@ -34,8 +34,8 @@
 }
 
 #home-container .event-calendar h2 {
-    color: whitesmoke;
-    font-family:'Times New Roman', Times, serif;
+    color:  #012c57;
+    font-family: "Protest Riot", sans-serif;
     font-weight: bold;
     font-size: xx-large;
     font-style: oblique;
@@ -43,7 +43,7 @@
 
 .event {
     background-color: rgba(106, 142, 35, 0.632);
-    color: whitesmoke;
+    color:  #012c57;
     padding: 2rem;
     border-radius: 5px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -63,5 +63,11 @@
     margin-right: 1rem;
     margin-left: 2rem;
     position: sticky;
-    top: 3rem;
+    top: 2rem;
+}
+
+.club-name {
+    font-weight: bold;
+    font-size: 1.5em;
+    font-family: "Wellfleet", monospace;
 }

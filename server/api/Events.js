@@ -5,7 +5,12 @@ import mongoose from "mongoose";
 const eventsSchema = mongoose.Schema({
   title: String,
   description: String,
-  clubId: { type: mongoose.Schema.Types.ObjectId, ref: "clubs" } // Reference clubs model
+  clubId: { type: mongoose.Schema.Types.ObjectId, ref: "clubs" },// Reference clubs model
+  date: {
+    type: Date,
+    required: true
+  },
+  available_tickets: Number
 });
 
 // Create the events model
@@ -23,7 +28,17 @@ export default function events(server) {
       res.status(500).json({ error: 'Internal Server Error' });
     }
     });
-
+    //get 1 event by id
+/*
+    server.get('/api/events/:id', async (req, res) => {
+      const id = req.params.id;
+      const event = await eventsModel.findById(id);
+      // Logik för att uppdatera item med angivet id
+      res.status(200).json( { event });
+      
+      console.log('got request');
+    });
+*/
     // Endpoint to get events associated with a specific club
     server.get('/api/events/:clubId', async (req, res) => {
       try {
@@ -38,8 +53,8 @@ export default function events(server) {
     // Endpoint to create a new event and associate it with a club
     server.post('/api/events', async (req, res) => {
       try {
-        const { title, description, clubId } = req.body;
-        const newEvent = new eventsModel({ title, description, clubId });
+        const { title, description, clubId, date, available_tickets } = req.body;
+        const newEvent = new eventsModel({ title, description, clubId, date, available_tickets });
         const savedEvent = await newEvent.save();
         res.status(201).json(savedEvent);
       } catch (error) {

@@ -1,21 +1,20 @@
 export default async function booking() {
-   const response = await fetch('/api/events/')
-   const result = await response.json()
-   
-   let newEvent = ''
+    const response = await fetch('/api/events/');
+    const result = await response.json();
 
-   for (let i = 0; i < result.length; i++) {
+    let newEvent = '';
 
-      let data = result[i];
-      
-      newEvent += `
+    for (let i = 0; i < result.length; i++) {
+        let data = result[i];
+
+        newEvent += `
          <option value="${data._id}">${data.title}</option>
-         `
-      }
+         `;
+    }
 
     return `
       <section id="booking-page">
-       <h1>Välkommen att boka dina biljetter här.</h1>
+      <h1>Välkommen att boka dina biljetter här.</h1>
 
        <form id="booking" onsubmit="submitForm(); return false">
        <input type="text" name="name" placeholder="ange ditt namn">
@@ -48,46 +47,45 @@ export default async function booking() {
       <p>Thank you! We have sent an email confirming your booking.</p>
     </div>
     </section>
-    `
+    `;
 }
 
 async function submitForm() {
+    let form = $('#booking');
 
-   let form = $( "#booking" );
+    var name = form.find('[name="name"]').val();
+    var email = form.find('[name="email"]').val();
+    var eventId = form.find('[name="eventId"]').val();
+    var tickets = form.find('[name="tickets"]').val();
 
-   var name = form.find('[name="name"]').val();
-   var email = form.find('[name="email"]').val();
-   var eventId = form.find('[name="eventId"]').val();
-   var tickets = form.find('[name="tickets"]').val();
-
-   if (!name || !email) {
-      console.error("Name or email is empty");
-      return;
-  }
-
-   let formData = {
-      name: name,
-      email: email,
-      eventId: eventId,
-      tickets: tickets
+    if (!name || !email) {
+        console.error('Name or email is empty');
+        return;
     }
 
-   try {
-       const response = await fetch('/api/booking', {
-         method: 'POST',
-         headers: { 'Content-Type': 'application/json' },
-         body: JSON.stringify(formData)
-       });
+    let formData = {
+        name: name,
+        email: email,
+        eventId: eventId,
+        tickets: tickets,
+    };
 
-       if (!response.ok) {
-           throw new Error('Failed to submit form');
-       }
+    try {
+        const response = await fetch('/api/booking', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(formData),
+        });
 
-       $('#confirmBooking').show();
-       console.log('Form submitted successfully');
-   } catch (error) {
-       console.error('Error submitting form:', error);
-   }
+        if (!response.ok) {
+            throw new Error('Failed to submit form');
+        }
+
+        $('#confirmBooking').show();
+        console.log('Form submitted successfully');
+    } catch (error) {
+        console.error('Error submitting form:', error);
+    }
 }
 
-window.submitForm = submitForm
+window.submitForm = submitForm;
