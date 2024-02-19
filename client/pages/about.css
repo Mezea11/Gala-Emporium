@@ -49,4 +49,12 @@
 #contact {
     width: 50%;
     text-align: center;
+    color: rgb(59,89,152);
+    color: linear-gradient(90deg, rgba(59,89,152,1) 41%, rgba(48,145,191,1) 100%);
+}
+
+#contact a {
+    color: #012c57 !important;
+    text-decoration: none;
+    width: 1rem;
 }

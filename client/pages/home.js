@@ -3,13 +3,27 @@ export default async function home() {
   const response = await fetch('/api/events/');
   const result = await response.json();
 
+  result.sort((a, b) => new Date(a.date) - new Date(b.date));
+
   let html = '';
 
   for (let i = 0; i < result.length; i++) {
       let data = result[i];
+
+      const eventDate = new Date(data.date).toLocaleString('en-SE', {
+        weekday: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+        hour: 'numeric',
+        minute: 'numeric'
+    });
+
+
       html += `
           <div class="event">
               <h3>${data.title}</h3>
+              <h4>${eventDate}</h4>
               <p>${data.description}</p>
               <button>Book Tickets</button>
           </div>
