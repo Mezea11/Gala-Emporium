@@ -25,7 +25,7 @@ export default async function home() {
               <h3>${data.title}</h3>
               <h4>${eventDate}</h4>
               <p>${data.description}</p>
-              <button>Book Tickets</button>
+              <a href="#booking"><button>Book Tickets</button></a>
           </div>
       `;
   }

@@ -46,11 +46,11 @@ export default function about() {
         <h2>Contact us</h2>
 
         <div>
-        <a href="#" target="_blank"><p>Facebook</p></a>
+        <a href="#"><p>Facebook</p></a>
         </div>
 
         <div>
-        <a href="#" target="_blank"><p>Instagram</p></a>
+        <a href="#"><p>Instagram</p></a>
         </div>
 
         <div>
