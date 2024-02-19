@@ -47,7 +47,21 @@ async function route() {
       $('main').html(await booking())
       break;
     case "admin":
-      console.log("admin");
+      const response = await fetch('/api/check-login', {
+        method: 'GET',
+        headers: { 'Content-Type': 'application/json' }
+    });
+    const data = await response.json();
+    if (data.loggedIn) {
+        console.log("Admin logged in");
+        $('main').html(await admin());
+    } else {
+        console.log("Admin not logged in");
+        // Redirect to login page or handle accordingly
+        // Example: window.location.href = '/login';
+    }
+    break;
+    console.log("admin");
       $('main').html(await admin())
       break;
     default:

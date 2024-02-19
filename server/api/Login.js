@@ -27,13 +27,20 @@ export default function login(server) {
         }
     });
 
-    server.get('/api/admin', (req, res) => {
-        if (!req.session.login) {
-            res.send( `Du har inte behörighet att ses denna sida`);
+    server.get('/api/check-login', (req, res) => {
+        if (req.session.login) {
+            // Admin is logged in
+            res.json({
+                loggedIn: true,
+                adminId: req.session.login
+            });
         } else {
-            res.send('Välkommen!');
+            // Admin is not logged in
+            res.json({
+                loggedIn: false
+            });
         }
-      })
+    });
 
       server.delete('/api/login', async(req, res) => {
         try{
