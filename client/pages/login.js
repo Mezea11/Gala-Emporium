@@ -3,10 +3,9 @@
 export default function login() {
     return `
     <div id="login-page-container">
-        <h1>Admin login page</h1>
-        <p>Enter your info to login as admin</p>
         <section id="login-container">
-            <h2>Admin Login</h2>
+        <div id = "inner-container">
+            <h1>Admin Login</h1>
             <form id="loginForm" onsubmit="submitLogin(); return false">
                 <div>
                     <label>Username</label>
@@ -14,10 +13,11 @@ export default function login() {
                 </div>
                 <div>
                     <label>Password</label>
-                    <input type="text" name="password" placeholder="Enter password">
+                    <input type="password" name="password" placeholder="Enter password">
                 </div>
-                <button type="submit">Login</button>
+                <button id="log-in" type="submit">Login</button>
             </form>
+            </div>
         </section>
     </div>
     `;

@@ -1,18 +1,62 @@
+
 #login-page-container {
+    font-family: "Protest Riot", sans-serif;
+    background-image: url('../assets/oscars.jpg');
+    background-size: cover;
+    background-repeat: repeat;
+    background-attachment: fixed;
+}
+
+#login-page-container {
+    margin: auto;
+    padding: auto;
     background-color: #f5f5f5;
-    height: fit-content;
+    height: 100%;
     display: flex;
     flex-direction: column;
     flex-grow: 1;
 }
 #login-container {
-    background-color: #012c57;
+    background-color: rgba(242, 168, 32, 0.904);
+    margin: 1rem;
     color: #f5f5f5;
-    width: 40vw;
     display: flex;
     flex-direction: column;
     align-self: center;
     align-items: center;
     padding: 1em;
-    margin: 3em;
+    max-width: 400px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin-top: 10%;
+    margin-bottom: 15%;
+    border-radius: 1rem;
+}
+
+#inner-container {
+    background-color: rgba(106, 142, 35, 0.632);
+    color: #012c57;
+    border: 0.2rem solid #012c57;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 1rem;
+    margin: 3rem;
+    padding: 1rem;
+    height: 100%;
+    width: fit-content;
+}
+
+#login-container label {
+    font-size: 1.5rem; /* Adjust the font size as needed */
+}
+
+#login-container input {
+    font-size: 1.2rem; /* Adjust the font size as needed */
+    margin-bottom: 1rem;
+    
+}
+
+#log-in {
+    margin-top: 0.5rem;
+    padding: 0.3rem;
+    background-color: #012c57;
+    color: antiquewhite;
 }
