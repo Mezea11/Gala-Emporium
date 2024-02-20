@@ -17,7 +17,7 @@ Club colors:
     flex-grow: 1;
     flex-direction: column;
     justify-content: center;
-    align-items: stretch;
+    align-items: center;
     gap: 2em;
     padding: 2em 10em;
     background-color: #f8f7e5;
@@ -26,21 +26,39 @@ Club colors:
     font-family: 'Londrina Solid', sans-serif;
 
     h1 {
-        font-size: 8em;
+        font-size: 6em;
         font-weight: 900;
-        margin: none;
+        margin: 0;
     }
     h2 {
         font-size: 4em;
         font-weight: 400;
+        margin: 0;
     }
     h3 {
         font-size: 2em;
         font-weight: 400;
+        margin: 0.5em 0 0 0;
+    }
+    h4 {
+        font-size: 1.3em;
+        margin: 0;
     }
     p {
-        font-size: 2em;
+        font-size: 1.2em;
         font-weight: 300;
+        margin: 0;
+    }
+
+    button {
+        background-color: #cf6f38;
+        border-style: none;
+        border-radius: 1em;
+        padding: 1em;
+        width: 8em;
+        font-family: 'Londrina Solid', sans-serif;
+        font-weight: 300;
+        font-size: 1em;
     }
 }
 
@@ -48,19 +66,24 @@ Club colors:
 #about-club3 {
     display: flex;
     flex-direction: column;
+    width: 40vw;
     align-items: center;
     background-color: #293431;
     color: #cf6f38;
     padding: 2em;
     border-radius: 1em;
 }
+#about-club3 p {
+    text-align: center;
+}
 
 /* Calender container */
 #calender-club3 {
     display: flex;
     flex-direction: column;
-    gap: 2em;
-    padding: 2em;
+    width: 50vw;
+    gap: 3em;
+    padding: 3em;
     background-color: #293431;
     border-radius: 1em;
 }
@@ -77,14 +100,8 @@ Club colors:
     padding: 1em;
 }
 
-.event-club3 button {
-    background-color: #cf6f38;
-    border-style: none;
-    border-radius: 1em;
-    padding: 1em;
-}
-
 /* Animations */
-.event-club3 button:hover {
+#club-3-container button:hover {
     background-color: #eda651;
+    cursor: pointer;
 }
