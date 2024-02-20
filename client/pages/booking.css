@@ -24,3 +24,16 @@
     align-items: center;
     display: none;
 }
+
+#notEnoughTickets {
+    color: red;
+    align-items: center;
+    display: none;
+}
+#available-tickets {
+    font-size: 1em;
+}
+
+#confirmBookingId {
+    color: darkorange;
+}
