@@ -3,13 +3,27 @@ export default async function home() {
   const response = await fetch('/api/events/');
   const result = await response.json();
 
+  result.sort((a, b) => new Date(a.date) - new Date(b.date));
+
   let html = '';
 
   for (let i = 0; i < result.length; i++) {
       let data = result[i];
+
+      const eventDate = new Date(data.date).toLocaleString('en-SE', {
+        weekday: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+        hour: 'numeric',
+        minute: 'numeric'
+    });
+
+
       html += `
           <div class="event">
               <h3>${data.title}</h3>
+              <h4>${eventDate}</h4>
               <p>${data.description}</p>
               <button>Book Tickets</button>
           </div>
@@ -49,8 +63,6 @@ export default async function home() {
        </a>
        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
         Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-         Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
        </p>
        </div>
      </aside>

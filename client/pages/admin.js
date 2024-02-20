@@ -52,30 +52,15 @@ export default async function admin() {
         }
         
     }
-    /*
-    for (let i = 0; i < result.length; i++) {
-        let data = result[i];
-        clubArray.push(data._id);
-       }
 
-    console.log(clubArray);
-    
-    const response1 = await fetch('/api/events/'+ clubArray[0])
-    const result1 = await response1.json()
-    const response2= await fetch('/api/events/'+ clubArray[1])
-    const result2 = await response2.json()
-    
-    console.log(result1);
-    console.log(result2);
-    */
     return `
         <section id="admin-container">
-            <button onclick="logOut();">Log out</button>
+            <button onclick="logOut();" id="log-out-btn">Log out</button>
             <section id="create-event-container">
                 <h1>Create new event here:</h1>
                 <form id="newEventForm" onsubmit="postEvent(); return false" >
                     <input type="text" name="eventTitle" placeholder="Enter event title">
-                    <input type="text" name="eventDescription" placeholder="Describe the event">
+                    <input type="text" name="eventDescription" placeholder="Describe the event" id="event-description">
                     <label for="eventDate">Event Date:</label>
                     <input type="date" id="eventDate" name="eventDate">
                     <label for="eventTime">Event Time:</label>
@@ -86,7 +71,7 @@ export default async function admin() {
                     <!-- date and time -->
                     <input type="number" name="tickets" placeholder="Enter amount of bookable tickets">
                     
-                    <button type="submit">Create new event!</button>
+                    <button type="submit">Create new event</button>
                 </form>
             </section>
             
@@ -94,8 +79,11 @@ export default async function admin() {
                 
             </article>
             
+
+            <div class="update-event-container">
             <form id="updateEventform" onsubmit="submitUpdate(); return false">
-                <label for="events">Välj evenemang:</label>
+                <h1>Edit events</h1>
+                <label for="events">Choose event:</label>
                 <select id="choose-event" name="eventId" onchange="populateForm();">
                     ${myEvent}
                 </select>
@@ -110,8 +98,10 @@ export default async function admin() {
                 </select>
 
                 <input type="number" name="tickets" id="ticketsUp" placeholder="Enter amount of bookable tickets">
-                <button type="submit">Update event!</button>
+                <button type="submit">Update event</button>
+                <button type="button" onclick="deleteEvent();">Delete Event</button>
             </form>
+            </div>
         </section>
     `
 }
@@ -194,6 +184,28 @@ async function submitUpdate() {
     console.log(formData);
  }
 
+ async function deleteEvent() {
+
+    let eventId = $('#choose-event').val();
+    console.log("deleteEvent button was clicked.")
+
+    try {
+        const response = await fetch('/api/events/' + eventId, {
+            method: 'DELETE',
+        });
+
+        if (!response.ok) {
+            throw new Error('Failed to delete event');
+        }
+
+        $('#confirmEvent').show();
+        console.log('Event successfully deleted');
+
+        // Optionally, update the UI to reflect the deletion
+    } catch (error) {
+        console.error('Error deleting event:', error);
+    }
+}
 
 async function postEvent() {
 
@@ -239,7 +251,9 @@ async function postEvent() {
    console.log(formData);
 }
 
+
 window.populateForm = populateForm;
 window.submitUpdate = submitUpdate;
 window.postEvent = postEvent;
+window.deleteEvent = deleteEvent;
 window.logOut = logOut;

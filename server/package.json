@@ -1,7 +1,6 @@
 {
   "name": "server",
   "version": "1.0.0",
-  "description": "",
   "main": "server.js",
   "type": "module",
   "scripts": {
@@ -15,5 +14,7 @@
     "express-session": "^1.18.0",
     "mongoose": "^8.1.1",
     "nodemon": "^3.0.3"
-  }
+  },
+  "devDependencies": {},
+  "description": ""
 }

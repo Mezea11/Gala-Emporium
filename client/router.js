@@ -32,7 +32,7 @@ async function route() {
       break;
     case "club-2":
       console.log("CLUB-2");
-      $('main').html(club2())
+      $('main').html(await club2())
       break;
     case "club-3":
       console.log("CLUB-3");
