@@ -62,6 +62,7 @@ export default async function club3() {
             
             <section id="calender-club3">
                 <h2>Club Calender</h2>
+                <!-- render fetched events -->
                 ${club3Event}
             </section>
         </div>
