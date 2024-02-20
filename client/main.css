@@ -31,6 +31,7 @@ body {
     align-items: center;
     background-color: #012c57;
     border-bottom: 1px solid #0000002d;
+    padding: 1rem;
 }
 
 #main-nav-h1 {

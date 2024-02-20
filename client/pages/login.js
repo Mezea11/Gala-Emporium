@@ -4,7 +4,7 @@ export default function login() {
     return `
     <div id="login-page-container">
         <section id="login-container">
-        <div id = "inner-container">
+        <div id = "inner-container-login">
             <h1>Admin Login</h1>
             <form id="loginForm" onsubmit="submitLogin(); return false">
                 <div>
