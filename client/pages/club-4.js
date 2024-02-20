@@ -1,28 +1,31 @@
 export default async function club4() {
     const response = await fetch('/api/events/65ca1005dd4d79add97d34c6')
     const result = await response.json()
-
+    //sortera objekten i hämtad array efter date property
+    result.sort((a, b) => new Date(a.date) - new Date(b.date));
+    //deklarera tom variabel för de objekt vi vill rendera på sidan
     let myEvents = ''
-
+    //går igenom hämtad data (array) och väljer vilka properties vi vill ha ur datan samt hur dessa ska visas i vår html
     for (let i = 0; i < result.length; i++) {
 
         let data = result[i];
-        console.log(data.date);
         let date = new Date (data.date);
-        
+        // parse object date property som datum och klockslag separat
         let dateString = date.getFullYear().toString().padStart(4, '0') + '-' + (date.getMonth()+1).toString().padStart(2, '0') + '-' + date.getDate().toString().padStart(2, '0');
         let timeString = date.getHours().toString().padStart(2, '0') + ':' + date.getMinutes().toString().padStart(2, '0');
-        
+        //för varje [i] i result skapar vi en instans av myEvents med data från objektet tillhörande [i]
         myEvents += `
         <article class="event-club-4">
-            <div class ="event-club-4-dateTime"
+            <div class ="event-club-4-dateTime">
                 <span>Date: ${ dateString }</span>
                 <span> Time: ${ timeString }</span>
             </div>
             <h1>${ data.title }</h1>
-            <p>${ data.description }</p>
-            <p>Available tickets: ${data.available_tickets}</p>
-            <button class="booking-button" onclick="navigateToBooking('${data._id}')">Tickets</button>
+            <p onclick="expandDescription(this)">${ data.description }</p>
+            <div class ="event-club-4-lastRow">
+                <button class="booking-button" onclick="navigateToBooking('${data._id}')">Tickets</button>
+                <p>Tickets left: ${data.available_tickets}</p>
+            </div>
         </article>
       `
 
@@ -51,9 +54,18 @@ export default async function club4() {
         `
     }
 
+    function expandDescription(paragraph) {
+        if (paragraph.classList.contains('expanded')) {
+            paragraph.classList.remove('expanded');
+        } else {
+            paragraph.classList.add('expanded');
+        }
+    }
+    //navigerar till booking-sidan och skickar med eventId för att få det evenemang du klickade på som förval
     function navigateToBooking(eventId) {
         window.location.href = "#booking";
         sessionStorage.setItem('bookingEventId', eventId);
     }
 
+    window.expandDescription = expandDescription;
     window.navigateToBooking = navigateToBooking;
