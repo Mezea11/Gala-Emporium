@@ -21,7 +21,7 @@ export default async function club2() {
             hour: 'numeric',
             minute: 'numeric'
         });
-        
+
         event += `
         <div class="event-club-2">
             <h1>${data.title}</h1>
@@ -30,7 +30,7 @@ export default async function club2() {
             <p class="date-club2">Tickets available: ${data.available_tickets}</p>
             <button onclick="navigateToBooking('${data._id}')">Book tickets</button>
         </div>
-      `    
+      `
     }
     return `
     <div id="club-2-container"> 
@@ -43,7 +43,7 @@ export default async function club2() {
             <a href="#booking"><button>Book tickets</button></a>
         </div>
         <div id="sidebar-left-club2">
-            <p>One of Scandanavias biggest music clubs, ever since it's inception in 1996. In central Gothenburg, the legendary club has hosted some of the biggest names in the rock and metal world. Welcome to Valhall!</p>
+            <p>One of Scandanavias biggest music clubs, ever since it's inception in 1996. In central Gothenburg, the legendary club has hosted some of the biggest names in the rock and metal world. <br><br>Welcome to Valhall!</p>
         </div>
         <section id="event-container-club-2">
             ${event}
