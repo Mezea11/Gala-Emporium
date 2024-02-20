@@ -1,28 +1,30 @@
-import { adminId, formData } from "./login.js";
+import { adminId, formData } from './login.js';
 var allEvents = [];
 export default async function admin() {
-    
     console.log(adminId);
-    
-    const response = await fetch('/api/clubs/'+ adminId)
-    const result = await response.json()
 
-    console.log('hello world')
-    //let clubArray = [];
-    
+    const response = await fetch('/api/clubs/' + adminId);
+    const result = await response.json();
+
+    console.log('You have logged in as: ' + adminId);
+
     //let clubArray = result.map(data => data._id);
     let clubArray;
     if (Array.isArray(result)) {
-        clubArray = result.map(data => data._id);
+        clubArray = result.map((data) => data._id);
     } else {
         clubArray = [result._id];
     }
     console.log(clubArray);
-    
+
     // Fetch event data for all clubs concurrently
-    const eventPromises = clubArray.map(clubId => fetch('/api/events/' + clubId));
+    const eventPromises = clubArray.map((clubId) =>
+        fetch('/api/events/' + clubId)
+    );
     const eventResponses = await Promise.all(eventPromises);
-    const eventResults = await Promise.all(eventResponses.map(response => response.json()));
+    const eventResults = await Promise.all(
+        eventResponses.map((response) => response.json())
+    );
 
     // eventResults is now an array of event data for each club
     console.log(eventResults);
@@ -33,15 +35,14 @@ export default async function admin() {
 
         myClubs += `
         <option value="${data._id}">${data.club_name}</option>
-        `;   
+        `;
     }
-    
+
     let myEvent = '';
 
-    
     for (let i = 0; i < eventResults.length; i++) {
         let eventsForClub = eventResults[i];
-        
+
         for (let j = 0; j < eventsForClub.length; j++) {
             let data = eventsForClub[j];
             allEvents.push(data);
@@ -50,7 +51,6 @@ export default async function admin() {
             `;
             //console.log(myEvent);
         }
-        
     }
 
     return `
@@ -103,21 +103,31 @@ export default async function admin() {
             </form>
             </div>
         </section>
-    `
+    `;
 }
 
 async function populateForm() {
     let selectedEventId = $('#choose-event').val();
-    
-    const selectedEvent = allEvents.find(event => event._id === selectedEventId);
+
+    const selectedEvent = allEvents.find(
+        (event) => event._id === selectedEventId
+    );
     console.log(selectedEvent);
     if (selectedEvent) {
         $('#title-input').val(selectedEvent.title);
         $('#description-input').val(selectedEvent.description);
-        let date = new Date (selectedEvent.date);
+        let date = new Date(selectedEvent.date);
         console.log(date);
-        let dateString = date.getFullYear().toString().padStart(4, '0') + '-' + (date.getMonth()+1).toString().padStart(2, '0') + '-' + date.getDate().toString().padStart(2, '0');
-        let timeString = date.getHours().toString().padStart(2, '0') + ':' + date.getMinutes().toString().padStart(2, '0');
+        let dateString =
+            date.getFullYear().toString().padStart(4, '0') +
+            '-' +
+            (date.getMonth() + 1).toString().padStart(2, '0') +
+            '-' +
+            date.getDate().toString().padStart(2, '0');
+        let timeString =
+            date.getHours().toString().padStart(2, '0') +
+            ':' +
+            date.getMinutes().toString().padStart(2, '0');
         $('#eventDateUp').val(dateString);
         $('#eventTimeUp').val(timeString);
         $('#choose-clubUp').val(selectedEvent.clubId);
@@ -126,33 +136,39 @@ async function populateForm() {
 }
 
 async function logOut() {
-        const response = await fetch('/api/login', {
+    const response = await fetch('/api/login', {
         method: 'DELETE',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData)
-      });
+        body: JSON.stringify(formData),
+    });
 
     window.location.href = '/#login';
-    console.log("hopefully we will log out...")
-};
+    console.log('hopefully we will log out...');
+}
 
 async function submitUpdate() {
-    let form = $( '#updateEventform' );
+    let form = $('#updateEventform');
 
     let eventId = $('#choose-event').val();
 
     console.log(eventId);
 
-    var title = form.find('[name="title"]').val();
-    var description = form.find('[name="description"]').val();
+    var eventTitle = form.find('[name="eventTitle"]').val();
+    var eventDescription = form.find('[name="eventDescription"]').val();
     var clubId = form.find('[name="clubId"]').val();
     var tickets = form.find('[name="tickets"]').val();
     var eventDate = form.find('[name="eventDate"]').val();
     var eventTime = form.find('[name="eventTime"]').val();
     var date = new Date(eventDate + ' ' + eventTime);
 
-    if (!title || !description || !eventDate || !eventTime || !tickets) {
-        console.error("Title or description is empty");
+    if (
+        !eventTitle ||
+        !eventDescription ||
+        !eventDate ||
+        !eventTime ||
+        !tickets
+    ) {
+        console.error('Title or description is empty');
         return;
     }
 
@@ -161,33 +177,31 @@ async function submitUpdate() {
         description: description,
         clubId: clubId,
         date: date,
-        available_tickets: tickets
-    }
+        available_tickets: tickets,
+    };
 
     try {
         const response = await fetch('/api/events/' + eventId, {
-          method: 'PATCH',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(formData)
+            method: 'PATCH',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(formData),
         });
- 
+
         if (!response.ok) {
             throw new Error('Failed to submit event');
         }
- 
+
         $('#confirmEvent').show();
         console.log('Event successfully updated');
-        
     } catch (error) {
         console.error('Error updating event:', error);
     }
     console.log(formData);
- }
+}
 
- async function deleteEvent() {
-
+async function deleteEvent() {
     let eventId = $('#choose-event').val();
-    console.log("deleteEvent button was clicked.")
+    console.log('deleteEvent button was clicked.');
 
     try {
         const response = await fetch('/api/events/' + eventId, {
@@ -208,8 +222,8 @@ async function submitUpdate() {
 }
 
 async function postEvent() {
-
-    let form = $( '#newEventForm' );
+    let form = $('#newEventForm');
+    let formToClear = $('#newEventForm');
 
     var title = form.find('[name="eventTitle"]').val();
     var description = form.find('[name="eventDescription"]').val();
@@ -219,38 +233,51 @@ async function postEvent() {
     var eventTime = form.find('[name="eventTime"]').val();
     var date = new Date(eventDate + ' ' + eventTime);
 
-   if (!title || !description || !eventDate || !eventTime || !tickets) {
-        console.error("Title or description is empty");
+    if (!title || !description || !eventDate || !eventTime || !tickets) {
+        console.error('Title or description is empty');
         return;
     }
 
-   let formData = {
+    let formData = {
         title: title,
         description: description,
         clubId: clubId,
         date: date,
-        available_tickets: tickets
+        available_tickets: tickets,
+    };
+
+    try {
+        const response = await fetch('/api/events', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(formData),
+        });
+
+        if (!response.ok) {
+            throw new Error('Failed to submit event');
+        }
+
+        $('#confirmEvent').show();
+        console.log('Event submitted successfully');
+        // call reset form
+        resetFormAdmin(formToClear);
+    } catch (error) {
+        console.error('Error submitting event:', error);
     }
-
-   try {
-       const response = await fetch('/api/events', {
-         method: 'POST',
-         headers: { 'Content-Type': 'application/json' },
-         body: JSON.stringify(formData)
-       });
-
-       if (!response.ok) {
-           throw new Error('Failed to submit event');
-       }
-
-       $('#confirmEvent').show();
-       console.log('Event submitted successfully');
-   } catch (error) {
-       console.error('Error submitting event:', error);
-   }
-   console.log(formData);
+    console.log(formData);
 }
 
+// function to clear out from
+function resetFormAdmin(formToClear) {
+    let form = formToClear;
+    form.find('[name="eventTitle"]').val('');
+    form.find('[name="eventDescription"]').val('');
+    form.find('[name="clubId"]').val('');
+    form.find('[name="tickets"]').val('');
+    form.find('[name="eventDate"]').val('');
+    form.find('[name="eventTime"]').val('');
+    console.log('cleared out form');
+}
 
 window.populateForm = populateForm;
 window.submitUpdate = submitUpdate;
