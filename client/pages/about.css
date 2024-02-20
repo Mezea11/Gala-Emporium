@@ -31,7 +31,7 @@
 
 .pane-block {
     background-color: rgba(106, 142, 35, 0.632);
-    width: 40%; /* Adjust the width as needed */
+    width: 40%; 
     margin: 1rem;
     padding: 1rem;
     border-radius: 1rem;
