@@ -24,7 +24,7 @@ export default async function club1() {
       <div class="event-club-1">
           <h2>${data.title}</h2>
           <p>${data.description}</p>
-          <h3>${eventDate}</h3>
+          <h5>${eventDate}</h5>
           <button><a href="#booking">Book Tickets</a></button>
       </div>
     `    
@@ -36,7 +36,8 @@ export default async function club1() {
       <section id="club-1-about">    
           <h1>Ivy Lounge</h1>  
           <h2>Ivy Lounge: Where Live Events Thrive</h2>
-          <p>Ivy Lounge: Where the whispers of jazz mingle with the clink of glasses. Step into our clandestine world, where every night is a journey into the heart of live music. Lose yourself in the intimate ambiance, where soulful melodies and crafted cocktails collide to create unforgettable moments. Welcome to Ivy Lounge, where the night comes alive.</p>
+          <p>Ivy Lounge: Where the whispers of jazz mingle with the clink of glasses. Step into our clandestine world, where every night is a journey into the heart of live music. Lose yourself in the intimate ambiance, where soulful melodies and crafted cocktails collide to create unforgettable moments. Welcome to Ivy Lounge, where the night comes alive.
+          </p>
       </section>
 
       <section id="event-container-club-1">
