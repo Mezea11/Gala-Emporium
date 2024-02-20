@@ -8,7 +8,6 @@ export default async function admin() {
 
     console.log('You have logged in as: ' + adminId);
 
-    //let clubArray = result.map(data => data._id);
     let clubArray;
     if (Array.isArray(result)) {
         clubArray = result.map((data) => data._id);
@@ -73,6 +72,7 @@ export default async function admin() {
                     
                     <button type="submit">Create new event</button>
                 </form>
+                <p id="confirmEvent">A new event has been added!</p>
             </section>
             
             <article class="event-container-admin">
@@ -80,28 +80,30 @@ export default async function admin() {
             </article>
             
 
-            <div class="update-event-container">
-            <form id="updateEventform" onsubmit="submitUpdate(); return false">
-                <h1>Edit events</h1>
-                <label for="events">Choose event:</label>
-                <select id="choose-event" name="eventId" onchange="populateForm();">
-                    ${myEvent}
-                </select>
-                <input type="text" id="title-input" name="title" placeholder="Event name">
-                <input type="text" id="description-input" name="description" placeholder="Event description">
-                <label for="eventDate">Event Date:</label>
-                    <input type="date" id="eventDateUp" name="eventDate">
-                    <label for="eventTime">Event Time:</label>
-                    <input type="time" id="eventTimeUp" name="eventTime">
-                <select id="choose-clubUp" name="clubId">
-                    ${myClubs}
-                </select>
+            <section id="update-event-container">
+                <form id="updateEventform" onsubmit="submitUpdate(); return false">
+                    <h1>Edit events</h1>
+                    <label for="events">Choose event:</label>
+                    <select id="choose-event" name="eventId" onchange="populateForm();">
+                        ${myEvent}
+                    </select>
+                    <input type="text" id="title-input" name="eventTitle" placeholder="Event name">
+                    <input type="text" id="description-input" name="eventDescription" placeholder="Event description">
+                    <label for="eventDate">Event Date:</label>
+                        <input type="date" id="eventDateUp" name="eventDate">
+                        <label for="eventTime">Event Time:</label>
+                        <input type="time" id="eventTimeUp" name="eventTime">
+                    <select id="choose-clubUp" name="clubId">
+                        ${myClubs}
+                    </select>
 
-                <input type="number" name="tickets" id="ticketsUp" placeholder="Enter amount of bookable tickets">
-                <button type="submit">Update event</button>
-                <button type="button" onclick="deleteEvent();">Delete Event</button>
-            </form>
-            </div>
+                    <input type="number" name="tickets" id="ticketsUp" placeholder="Enter amount of bookable tickets">
+                    <button type="submit">Update event</button>
+                    <button type="button" onclick="deleteEvent();">Delete Event</button>
+                </form>
+                <p id="confirmUpdate">The event has been updated!</p>
+                <p id="confirmDelete">The event has been deleted!</p>
+            </section>
         </section>
     `;
 }
@@ -160,27 +162,22 @@ async function submitUpdate() {
     var eventDate = form.find('[name="eventDate"]').val();
     var eventTime = form.find('[name="eventTime"]').val();
     var date = new Date(eventDate + ' ' + eventTime);
-
-    if (
-        !eventTitle ||
-        !eventDescription ||
-        !eventDate ||
-        !eventTime ||
-        !tickets
-    ) {
+    
+    if ( !eventTitle || !eventDescription || !tickets || !eventDate || !eventTime) {
         console.error('Title or description is empty');
-        return;
+        return false;
     }
 
     let formData = {
-        title: title,
-        description: description,
+        title: eventTitle,
+        description: eventDescription,
         clubId: clubId,
         date: date,
         available_tickets: tickets,
     };
 
     try {
+        //await populateForm();
         const response = await fetch('/api/events/' + eventId, {
             method: 'PATCH',
             headers: { 'Content-Type': 'application/json' },
@@ -191,8 +188,9 @@ async function submitUpdate() {
             throw new Error('Failed to submit event');
         }
 
-        $('#confirmEvent').show();
+        $('#confirmUpdate').show();
         console.log('Event successfully updated');
+        return true;
     } catch (error) {
         console.error('Error updating event:', error);
     }
@@ -212,9 +210,11 @@ async function deleteEvent() {
             throw new Error('Failed to delete event');
         }
 
-        $('#confirmEvent').show();
+        $('#confirmDelete').show();
+        $('#confirmUpdate').hide();
         console.log('Event successfully deleted');
-
+        resetFormAdmin($('#updateEventform'));
+        
         // Optionally, update the UI to reflect the deletion
     } catch (error) {
         console.error('Error deleting event:', error);
@@ -223,7 +223,6 @@ async function deleteEvent() {
 
 async function postEvent() {
     let form = $('#newEventForm');
-    let formToClear = $('#newEventForm');
 
     var title = form.find('[name="eventTitle"]').val();
     var description = form.find('[name="eventDescription"]').val();
@@ -258,17 +257,18 @@ async function postEvent() {
         }
 
         $('#confirmEvent').show();
+        $('#confirmDelete').hide();
         console.log('Event submitted successfully');
         // call reset form
-        resetFormAdmin(formToClear);
+        resetFormAdmin(form);
     } catch (error) {
         console.error('Error submitting event:', error);
     }
     console.log(formData);
 }
 
-// function to clear out from
-function resetFormAdmin(formToClear) {
+// function to clear out form
+async function resetFormAdmin(formToClear) {
     let form = formToClear;
     form.find('[name="eventTitle"]').val('');
     form.find('[name="eventDescription"]').val('');
