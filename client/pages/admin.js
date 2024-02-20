@@ -55,12 +55,12 @@ export default async function admin() {
 
     return `
         <section id="admin-container">
-            <button onclick="logOut();">Log out</button>
+            <button onclick="logOut();" id="log-out-btn">Log out</button>
             <section id="create-event-container">
                 <h1>Create new event here:</h1>
                 <form id="newEventForm" onsubmit="postEvent(); return false" >
                     <input type="text" name="eventTitle" placeholder="Enter event title">
-                    <input type="text" name="eventDescription" placeholder="Describe the event">
+                    <input type="text" name="eventDescription" placeholder="Describe the event" id="event-description">
                     <label for="eventDate">Event Date:</label>
                     <input type="date" id="eventDate" name="eventDate">
                     <label for="eventTime">Event Time:</label>
@@ -71,7 +71,7 @@ export default async function admin() {
                     <!-- date and time -->
                     <input type="number" name="tickets" placeholder="Enter amount of bookable tickets">
                     
-                    <button type="submit">Create new event!</button>
+                    <button type="submit">Create new event</button>
                 </form>
             </section>
             
@@ -79,8 +79,11 @@ export default async function admin() {
                 
             </article>
             
+
+            <div class="update-event-container">
             <form id="updateEventform" onsubmit="submitUpdate(); return false">
-                <label for="events">Välj evenemang:</label>
+                <h1>Edit events</h1>
+                <label for="events">Choose event:</label>
                 <select id="choose-event" name="eventId" onchange="populateForm();">
                     ${myEvent}
                 </select>
@@ -95,9 +98,10 @@ export default async function admin() {
                 </select>
 
                 <input type="number" name="tickets" id="ticketsUp" placeholder="Enter amount of bookable tickets">
-                <button type="submit">Update event!</button>
+                <button type="submit">Update event</button>
                 <button type="button" onclick="deleteEvent();">Delete Event</button>
             </form>
+            </div>
         </section>
     `
 }
