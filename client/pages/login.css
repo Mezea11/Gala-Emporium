@@ -45,11 +45,11 @@
 }
 
 #login-container label {
-    font-size: 1.5rem; /* Adjust the font size as needed */
+    font-size: 1.5rem; 
 }
 
 #login-container input {
-    font-size: 1.2rem; /* Adjust the font size as needed */
+    font-size: 1.2rem; 
     margin-bottom: 1rem;
     
 }
