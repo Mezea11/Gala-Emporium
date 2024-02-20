@@ -30,20 +30,48 @@
     }
 }
 
-#sidebar-club2 {
+#sidebar-left-club2 {
     display: flex;
     position: fixed;
     left: 1rem;
     font: bold;
-    margin-top: 7rem;
     width: 19rem;
     flex-direction: column;
-    background-image: url("../assets/helmet.jpg");
+    background-color: rgb(129, 9, 9);
+    top: 20%;
 
     p {
         margin-left: 0.3rem;
         margin-right: 0.1rem;
-        margin-bottom: 22rem;
+        margin-bottom: 23rem;
+      }
+}
+
+#sidebar-right-club2 {
+    display: flex;
+    position: fixed;
+    right: 1rem;
+    font: bold;
+    width: 19rem;
+    flex-direction: column;
+    align-items: center;
+    background-image: url("../assets/helmet.jpg");
+    top: 20%;
+
+    button:hover {
+        transform: scale(1.1);
+        background-color: rgb(4, 77, 23);
+        cursor: pointer;
+    }
+
+    button {
+        width: 11rem;
+        height: 4rem;
+        font-size: 1.9rem;
+        border-radius: 1rem;
+        background-color: rgb(5, 109, 31);
+        border-color: rgb(2, 32, 10);
+        margin: 5rem 0.1rem 17rem 0.3rem;
       }
 }
 
@@ -60,12 +88,4 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-
-.event-club-2 button {
-    width: 3.5rem;
-    height: 2.5rem;
-    border-radius: 1rem;
-    background-color: rgb(4, 78, 23);
-    border-color: rgb(2, 32, 10);
 }

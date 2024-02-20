@@ -6,6 +6,9 @@ export default async function club2() {
 
     let event = ''
 
+    let exempel = result[0]
+    console.log(exempel)
+
     for (let i = 0; i < result.length; i++) {
 
         let data = result[i];
@@ -24,7 +27,6 @@ export default async function club2() {
             <h1>${data.title}</h1>
             <h1>${eventDate}</h1>
             <p>${data.description}</p>
-            <button>Tickets</button>
         </div>
       `    
     }
@@ -34,9 +36,11 @@ export default async function club2() {
             <h1>Valhall</h1>
             <h2>Live rock and metal at it's best</h2>
         </section>
-        <div id="sidebar-club2">
+        <div id="sidebar-right-club2">
+            <a href="#booking"><button>Book tickets</button></a>
+        </div>
+        <div id="sidebar-left-club2">
             <p>One of Scandanavias biggest music clubs ever since it's inception in 1996. Bla bla</p>
-    
         </div>
         <section id="event-container-club-2">
             ${event}
