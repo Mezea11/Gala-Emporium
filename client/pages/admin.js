@@ -82,7 +82,8 @@ export default async function admin() {
 
             <div class="update-event-container">
             <form id="updateEventform" onsubmit="submitUpdate(); return false">
-                <label for="events">Välj evenemang:</label>
+                <h1>Edit events</h1>
+                <label for="events">Choose event:</label>
                 <select id="choose-event" name="eventId" onchange="populateForm();">
                     ${myEvent}
                 </select>

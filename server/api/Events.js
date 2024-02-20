@@ -109,7 +109,7 @@ export default function events(server) {
       res.status(500).json({ error: 'internal server error' });
     }
   });
-  
+    
   }
 
   
