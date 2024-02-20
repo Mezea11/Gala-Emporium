@@ -53,7 +53,7 @@ export default async function club4() {
 
     function navigateToBooking(eventId) {
         window.location.href = "#booking";
-        window.bookingEventId = eventId;
+        sessionStorage.setItem('bookingEventId', eventId);
     }
 
     window.navigateToBooking = navigateToBooking;

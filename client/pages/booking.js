@@ -5,7 +5,9 @@ export default async function booking() {
 
     let fetchedEvents = '';
     let tickets_left = '';
+    const bookingEventId = sessionStorage.getItem("bookingEventId");
 
+    //<option value="${data._id}">${data.title}</option>
     for (let i = 0; i < result.length; i++) {
         let data = result[i];
         allEvents.push(data);
@@ -16,11 +18,12 @@ export default async function booking() {
         
 
         fetchedEvents += `
-         <option value="${data._id}">${data.title}</option>
-         `;
-         
-    }
+        <option value="${data._id}" ${data._id === bookingEventId ? "selected" : ""}>${data.title}</option>
 
+         `;
+    }
+    
+    
     return `
       <section id="booking-page">
       <h1>Välkommen att boka dina biljetter här.</h1>
@@ -67,6 +70,7 @@ export default async function booking() {
 
 var ticketCount;
 async function populateTickets() {
+    
     let eventId = $('#choose-event').val();
 
     const selectedEvent = allEvents.find(event => event._id === eventId);
