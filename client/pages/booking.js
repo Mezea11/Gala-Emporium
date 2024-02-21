@@ -165,7 +165,7 @@ async function submitForm() {
           $("#confirmBookingId").text(` ${bookingId}`);
           console.log("Form submitted successfully");
 
-//          await resetForm();
+          await resetForm();
 
           sessionStorage.clear();
       } else {
@@ -187,3 +187,4 @@ async function resetForm() {
 window.updateTicketCount = updateTicketCount;
 window.populateTickets = populateTickets;
 window.submitForm = submitForm;
+window.resetForm = resetForm;
