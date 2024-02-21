@@ -76,8 +76,9 @@
     }
 
     button {
-        width: 11rem;
-        height: 4rem;
+        width: fit-content;
+        height: fit-content;
+        padding: 1rem;
         font-size: 1.8rem;
         border-radius: 1rem;
         background-color: rgb(5, 109, 31);
