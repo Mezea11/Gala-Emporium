@@ -93,45 +93,44 @@ async function populateTickets() {
 }
 
 async function updateTicketCount() {
-    let form = $('#booking');
-    var eventId = form.find('[name="eventId"]').val();
-    var userTickets = form.find('[name="tickets"]').val();
-
-    if (bookingEventId) {
+  let form = $('#booking');
+  var eventId = form.find('[name="eventId"]').val();
+  var userTickets = form.find('[name="tickets"]').val();
+  
+  if (bookingEventId) {
       ticketCount = availableTickets;
-    }
-    
-    let newTicketCount = ticketCount - userTickets;
-    
-    let ticketProperty = {
-        available_tickets: newTicketCount
-    }
+  }
 
-    if (userTickets > ticketCount) {
-        console.log('not enough available tickets');
-        console.log(newTicketCount);
-        $("#notEnoughTickets").show();
-        $("#confirmBooking").hide();
-        return false;
+  if (userTickets > ticketCount) {
+      console.log('not enough available tickets');
+      $("#notEnoughTickets").show();
+      $("#confirmBooking").hide();
+      return false;
+  }
+  
+  let newTicketCount = ticketCount - userTickets;
+  
+  let ticketProperty = {
+      available_tickets: newTicketCount
+  };
+
+  try {
+      const response = await fetch('/api/events/'+ eventId, {
+          method: 'PATCH',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(ticketProperty),
+      });
+
+      if (!response.ok) {
+          throw new Error('Failed to submit form');
       }
-    
-    try {
-        const response = await fetch('/api/events/'+ eventId, {
-            method: 'PATCH',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(ticketProperty),
-        });
 
-        if (!response.ok) {
-            throw new Error('Failed to submit form');
-        }
+      return true;
 
-        return true;
-
-        } catch (error) {
-            console.error('Error submitting form:', error);
-            return false;
-    }
+  } catch (error) {
+      console.error('Error submitting form:', error);
+      return false;
+  }
 }
 
 async function submitForm() {
