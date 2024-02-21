@@ -28,7 +28,7 @@ export default async function club2() {
             <h2>${eventDate}</h2>
             <p class="description-club2">${data.description}</p>
             <p class="date-club2">Tickets available: ${data.available_tickets}</p>
-            <button onclick="navigateToBooking('${data._id}')">Book tickets</button>
+            <button onclick="navigateToBooking('${data._id}', '${data.available_tickets}')">Book tickets</button>
         </div>
       `
     }
@@ -47,6 +47,7 @@ export default async function club2() {
         </div>
         <section id="event-container-club-2">
             ${event}
+            <br><br><br>
         </section>
     </div>
     `
@@ -57,4 +58,5 @@ function navigateToBooking(eventId) {
     sessionStorage.setItem('bookingEventId', eventId);
 }
 
+window.navigateToBooking = navigateToBooking;
 window.navigateToBooking = navigateToBooking;

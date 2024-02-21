@@ -19,11 +19,12 @@
     width: 30%;
     background-image: url("../assets/wood.jpg");
     border-radius: 2rem;
-    font-family: 'Brush Script MT', cursive;
+    font-family: 'Londrina Solid';
     
     h1 {
         font-size: 5rem;
         margin: 1rem;
+
       }
     
     h2 {
@@ -103,7 +104,11 @@
     border-radius: 6rem;
     
     h1 {
-        font-family: 'Brush Script MT', cursive;
+        font-family: 'Londrina Solid';
+        font-size: 2rem;
+        color: rgb(77, 6, 6);
+        margin-top: 0;
+        margin-bottom: 0.7rem;
     }
     h2 {
     font-size: 1rem;  
@@ -113,7 +118,7 @@
 
 .description-club2 {
     text-align: center;
-    font-family: 'Brush Script MT', cursive;
+    font-family: 'Londrina Solid';
     color: rgb(77, 6, 6);
     margin: 0;
 }
