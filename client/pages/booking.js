@@ -27,14 +27,14 @@ export default async function booking() {
     return `
       <section id="booking-page">
         <div id="inner-container">
-          <h1>Välkommen att boka dina biljetter här.</h1>
+          <h1>Book your tickets here!</h1>
 
           <form id="booking" onsubmit="submitForm(); return false">
-            <input type="text" name="name" placeholder="ange ditt namn">
-            <input type="email" name="email" placeholder="ange din email">
+            <input type="text" name="name" placeholder="enter your name">
+            <input type="email" name="email" placeholder="enter your email">
       
             <div id="choose-event-div">
-              <label for="events"> Välj evenemang:</label>
+              <label for="events">Choose event:</label>
             </div>
             <select id="choose-event" name="eventId" onchange="populateTickets();">
             <option value="" disabled selected>Choose an event</option>
@@ -42,7 +42,7 @@ export default async function booking() {
             </select>
  
             <h3>Available tickets: <span id="available-tickets">${availableTickets}</span></h3>
-            <label for="service">Välj antal biljetter:</label>
+            <label for="service">Choose number of tickets:</label>
             <select id="tickets" name="tickets">
                 <option value="1">1</option>
                 <option value="2">2</option>
@@ -56,7 +56,7 @@ export default async function booking() {
                 <option value="10">10</option>    
             </select>
  
-            <input type="submit" value="Skicka din bokning"></input>
+            <input type="submit" value="Submit your booking"></input>
 
             <p id="notEnoughTickets">There's not enough tickets left!</p>
             <p id="confirmBooking">Thank you! We have sent an email confirming your booking. Please save your reference number: <span id="confirmBookingId"></span> </p>
