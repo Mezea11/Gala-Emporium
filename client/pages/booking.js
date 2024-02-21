@@ -22,7 +22,7 @@ export default async function booking() {
          `;
     }
 
-        
+    
     return `
       <section id="booking-page">
       <div id="inner-container">
