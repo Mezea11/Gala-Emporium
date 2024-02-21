@@ -76,20 +76,9 @@ async function populateTickets() {
 
     const selectedEvent = allEvents.find(event => event._id === eventId);
 
-//    if (bookingEventId) {
-//      ticketCount = $('#available-tickets').text();
-//    }
     ticketCount = selectedEvent.available_tickets;
     $('#available-tickets').text(ticketCount);
     
-    /*
-    if (selectedEvent) {
-        ticketCount = selectedEvent.available_tickets;
-        $('#available-tickets').text(ticketCount);
-    } else if (bookingEventId) {
-      ticketCount = availableTickets;
-      $('#available-tickets').text(ticketCount);
-    }*/
 }
 
 async function updateTicketCount() {
