@@ -110,9 +110,14 @@
         margin-top: 0;
         margin-bottom: 0.7rem;
     }
+
     h2 {
-    font-size: 1rem;  
-    margin-top: 0;  
+        font-size: 1rem;  
+        margin-top: 0;  
+    }
+
+    p {
+        font-size: 1.3rem;
     }
 }
 
@@ -128,8 +133,9 @@
 }
 
 .event-club-2 button {
-    width: 6rem;
-    height: 2.5rem;
+    width: fit-content;
+    height: fit-content;
+    padding: 0.5rem;
     font-weight: bold;
     border-radius: 1rem;
     background-color: rgb(7, 102, 31);
