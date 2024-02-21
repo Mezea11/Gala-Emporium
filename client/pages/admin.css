@@ -1,4 +1,8 @@
 #admin-container {
+    background-image: url('../assets/oscars.jpg');
+    background-size: cover;
+    background-repeat: repeat;
+    background-attachment: fixed;
     margin: 0;
     display: flex;
     justify-content: center;
