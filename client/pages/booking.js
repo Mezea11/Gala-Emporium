@@ -5,25 +5,24 @@ export default async function booking() {
 
     let fetchedEvents = '';
     let tickets_left = '';
+
     const bookingEventId = sessionStorage.getItem("bookingEventId");
+    let availableTickets = sessionStorage.getItem("availableTickets");
 
-    //<option value="${data._id}">${data.title}</option>
     for (let i = 0; i < result.length; i++) {
-        let data = result[i];
-        allEvents.push(data);
+      let data = result[i];
+      allEvents.push(data);
 
-        tickets_left += `
-             ${data.available_tickets};
-        ` 
-        
+      tickets_left += `
+            ${data.available_tickets};
+      ` 
 
-        fetchedEvents += `
+      fetchedEvents += `
         <option value="${data._id}" ${data._id === bookingEventId ? "selected" : ""}>${data.title}</option>
-
          `;
     }
-    
-    
+
+        
     return `
       <section id="booking-page">
       <h1>Välkommen att boka dina biljetter här.</h1>
@@ -38,7 +37,7 @@ export default async function booking() {
           ${fetchedEvents}
        </select>
  
-       <h3>Available tickets: <span id="available-tickets"></span></h3>
+       <h3>Available tickets: <span id="available-tickets">${availableTickets}</span></h3>
        <label for="service">Välj antal biljetter:</label>
        <select id="tickets" name="tickets">
           <option value="1">1</option>
@@ -75,6 +74,10 @@ async function populateTickets() {
 
     const selectedEvent = allEvents.find(event => event._id === eventId);
 
+    if (bookingEventId) {
+      ticketCount = parseInt($('#available-tickets').text());
+    }
+    
     if (selectedEvent) {
         ticketCount = selectedEvent.available_tickets;
         $('#available-tickets').text(ticketCount);

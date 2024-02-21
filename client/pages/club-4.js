@@ -22,7 +22,7 @@ export default async function club4() {
             <h1>${ data.title }</h1>
             <p>${ data.description }</p>
             <p>Available tickets: ${data.available_tickets}</p>
-            <button class="booking-button" onclick="navigateToBooking('${data._id}')">Tickets</button>
+            <button class="booking-button" onclick="navigateToBooking('${data._id}', '${data.available_tickets}')">Tickets</button>
         </article>
       `
 
@@ -51,9 +51,10 @@ export default async function club4() {
         `
     }
 
-    function navigateToBooking(eventId) {
+    function navigateToBooking(eventId, availableTickets) {
         window.location.href = "#booking";
         sessionStorage.setItem('bookingEventId', eventId);
+        sessionStorage.setItem('availableTickets', availableTickets);
     }
 
     window.navigateToBooking = navigateToBooking;
