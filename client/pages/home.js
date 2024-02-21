@@ -42,28 +42,25 @@ export default async function home() {
        <a href="#club-1"
        <h3 class = club-name >Ivy Lounge</h3>
        </a>
-       <p>Step into Ivy Lounge, where live music thrives in an atmosphere of mystery and elegance. Nestled in Lund, 
-       our speakeasy-style club hosts an eclectic lineup of talented artists, bringing soulful jazz, blues, and more
-        to our intimate stage.</p>
+       <p>Step into Ivy Lounge, where live music thrives in an atmosphere of mystery and elegance.
+       </p>
 
        <a href="#club-2"
        <h3 class = club-name >Valhall</h3>
        </a>
-       <p>One of Scandanavias biggest music clubs ever since it's inception in 1996...
+       <p>One of Scandanavias biggest music clubs, ever since it's inception in 1996.
        </p>
 
        <a href="#club-3"
        <h3 class = club-name >Malmö Up</h3>
        </a>
-       <p>This is the description of Malmö up Clup, with Stand-up comedy from the worlds 4 corners...
+       <p>Here we offer a place and environment for everything in comedy.
        </p>
        
        <a  href="#club-4"
        <h3 class = club-name >Blind Melon</h3>
        </a>
-       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-       </p>
+       <p>Blind Melon is the club celebrating the eclectic side of 90's rock music.
        </div>
      </aside>
      `
