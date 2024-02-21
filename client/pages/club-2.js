@@ -40,7 +40,7 @@ export default async function club2() {
         </section>
         <div id="sidebar-right-club2">
             <p>Experience a night out with amazing live music!</p>
-            <a href="#booking"><button>Book tickets</button></a>
+            <a href="#booking"><button>Booking page</button></a>
         </div>
         <div id="sidebar-left-club2">
             <p>One of Scandanavias biggest music clubs, ever since it's inception in 1996. In central Gothenburg, the legendary club has hosted some of the biggest names in the rock and metal world. <br><br>Welcome to Valhall!</p>
