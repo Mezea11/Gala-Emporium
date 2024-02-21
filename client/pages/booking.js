@@ -94,22 +94,23 @@ async function populateTickets() {
 
 async function updateTicketCount() {
   let form = $('#booking');
-  var eventId = form.find('[name="eventId"]').val();
-  var userTickets = form.find('[name="tickets"]').val();
-  
+  let eventId = form.find('[name="eventId"]').val();
+  let userTickets = parseInt(form.find('[name="tickets"]').val(), 10);
+
   if (bookingEventId) {
       ticketCount = availableTickets;
   }
 
-  if (userTickets > ticketCount) {
-      console.log('not enough available tickets');
+  // Check if the number of userTickets exceeds the available tickets or is negative
+  if (userTickets > ticketCount || userTickets <= 0) {
+      console.log('Invalid number of tickets');
       $("#notEnoughTickets").show();
       $("#confirmBooking").hide();
       return false;
   }
-  
+
   let newTicketCount = ticketCount - userTickets;
-  
+
   let ticketProperty = {
       available_tickets: newTicketCount
   };
@@ -132,6 +133,7 @@ async function updateTicketCount() {
       return false;
   }
 }
+
 
 async function submitForm() {
     let form = $('#booking');
