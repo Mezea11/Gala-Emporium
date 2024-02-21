@@ -33,7 +33,7 @@ export default async function booking() {
        <input type="email" name="email" placeholder="ange din email">
       
        <div id="choose-event-div"><label for="events"> Välj evenemang:</label>
-       <select id="choose-event" name="eventId" onchange="populateTickets();">
+       <select id="choose-event" name="eventId" onchange="populateTickets('${bookingEventId}');">
        <option value="" disabled selected>Choose an event</option>
           ${fetchedEvents}
        </select>
@@ -70,7 +70,7 @@ export default async function booking() {
 }
 
 var ticketCount;
-async function populateTickets() {
+async function populateTickets(bookingEventId) {
     
     let eventId = $('#choose-event').val();
 
