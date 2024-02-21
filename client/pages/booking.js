@@ -1,5 +1,6 @@
 let allEvents = [];
 let bookingEventId;
+let availableTickets;
 export default async function booking() {
     const response = await fetch('/api/events/');
     const result = await response.json();
@@ -8,7 +9,7 @@ export default async function booking() {
     let tickets_left = '';
 
     bookingEventId = sessionStorage.getItem("bookingEventId");
-    const availableTickets = sessionStorage.getItem("availableTickets");
+    availableTickets = sessionStorage.getItem("availableTickets");
 
     for (let i = 0; i < result.length; i++) {
       let data = result[i];
@@ -25,6 +26,7 @@ export default async function booking() {
 
     
     return `
+    <div id="booking-page-container">
       <section id="booking-page">
         <div id="inner-container">
           <h1>Book your tickets here!</h1>
@@ -63,6 +65,7 @@ export default async function booking() {
           </form>          
         </div>
       </section>
+    
     `;
 }
 
@@ -73,20 +76,30 @@ async function populateTickets() {
 
     const selectedEvent = allEvents.find(event => event._id === eventId);
 
-    if (bookingEventId) {
-      ticketCount = $('#available-tickets').text();
-    }
+//    if (bookingEventId) {
+//      ticketCount = $('#available-tickets').text();
+//    }
+    ticketCount = selectedEvent.available_tickets;
+    $('#available-tickets').text(ticketCount);
     
+    /*
     if (selectedEvent) {
         ticketCount = selectedEvent.available_tickets;
         $('#available-tickets').text(ticketCount);
-    }
+    } else if (bookingEventId) {
+      ticketCount = availableTickets;
+      $('#available-tickets').text(ticketCount);
+    }*/
 }
 
 async function updateTicketCount() {
     let form = $('#booking');
     var eventId = form.find('[name="eventId"]').val();
     var userTickets = form.find('[name="tickets"]').val();
+
+    if (bookingEventId) {
+      ticketCount = availableTickets;
+    }
     
     let newTicketCount = ticketCount - userTickets;
     
@@ -162,7 +175,9 @@ async function submitForm() {
           $("#confirmBookingId").text(` ${bookingId}`);
           console.log("Form submitted successfully");
 
-          await resetForm();
+//          await resetForm();
+
+          sessionStorage.clear();
       } else {
         console.log("Ticket count validation failed");
       }

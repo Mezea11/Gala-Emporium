@@ -1,9 +1,10 @@
-.container{
+#booking-page-container {
     background-image: url('../assets/oscars.jpg');
     background-size: cover;
     background-repeat: repeat;
     background-attachment: fixed;
-    
+    width: 100%;
+    height: 100%;
 }
 
 #booking-page {
@@ -68,10 +69,12 @@
     margin-top: 3%;
     border-radius: 1rem;
     margin-left: 0 auto;
-    height: 100vh;    
+    height: 100vh;
+    align-items: center;
 }
 
 #inner-container{
+    width: fit-content;
     border: 0.2rem solid white;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     border-radius: 1rem;
