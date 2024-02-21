@@ -23,8 +23,9 @@ export default async function home() {
     html += `
           <div class="event">
               <h3>${data.title}</h3>
-              <h4>${eventDate}</h4>
+              <h3>${eventDate}</h3>
               <p>${data.description}</p>
+              <h3>Tickets available: ${data.available_tickets}</h3>
               <a href="#booking"><button>Book tickets</button></a>
           </div>
       `;
