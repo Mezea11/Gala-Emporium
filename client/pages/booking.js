@@ -25,13 +25,14 @@ export default async function booking() {
         
     return `
       <section id="booking-page">
+      <div id="inner-container">
       <h1>Välkommen att boka dina biljetter här.</h1>
 
        <form id="booking" onsubmit="submitForm(); return false">
        <input type="text" name="name" placeholder="ange ditt namn">
        <input type="email" name="email" placeholder="ange din email">
-
-       <label for="events">Välj evenemang:</label>
+      
+       <div id="choose-event-div"><label for="events"> Välj evenemang:</label>
        <select id="choose-event" name="eventId" onchange="populateTickets();">
        <option value="" disabled selected>Choose an event</option>
           ${fetchedEvents}
@@ -55,6 +56,7 @@ export default async function booking() {
        <input type="submit" value="Skicka din bokning"></input>
  
     </form>
+  </div>
 
     <div id="notEnoughTickets">
     <p>There's not enough tickets left!</p>

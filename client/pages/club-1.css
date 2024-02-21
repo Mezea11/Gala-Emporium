@@ -9,7 +9,7 @@
     padding: 1rem;
     margin: auto;
     background: rgb(7,8,2);
-    background: linear-gradient(89deg, rgba(7,8,2,1) 0%, rgba(85,52,19,1) 100%);
+    background: linear-gradient(89deg, #cccccc 0%, #44301a 50%, #cccccc 100%);
     position: sticky;
 }
 
@@ -17,7 +17,7 @@
     top: 2em;
     position: sticky;
     width: calc(25% - 2rem); /* Adjust width for responsiveness */
-    background-color: #f0f0f0;
+    background-color: #ffffff;
     padding: 1rem;
     border-radius: 0px 0px 0px 50px;
     -webkit-border-radius: 0px 0px 0px 50px;
@@ -73,9 +73,13 @@
     font-family: "Lora", sans-serif;
     text-align: center;
     color: white;
-    background-color: rgba(0, 0, 0, 0.541);
+    background-color: rgba(0, 0, 0, 0.671);
     border-radius: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
+
+
 
 #event-container-club-1 {
     width: calc(30% - 2rem); /* Adjust width for responsiveness */
@@ -84,7 +88,7 @@
 
 .event-club-1 {
     width: 100%;
-    background-color: white;
+    background: #ffffff;  /* fallback for old browsers */
     border-radius: 5px;
     padding: 1rem;
     margin-bottom: 1rem;
@@ -105,14 +109,19 @@
 
 .event-club-1 h2 {
     font-size: medium;
-    color: #333333;
+    color: rgb(0, 0, 0);
+    font-family: "Lora", Arial, Helvetica, sans-serif;
 }
 
 .event-club-1 p {
     width: 75%;
     font-size: 14px;
     line-height: 1.4;
-    color: #666666;
+    color: #4d4d4d;
+    border: transparent;
+    border-radius: 8px;
+    padding: 1rem;
+    background-color: #cfcfcf13;
 }
 
 
@@ -132,7 +141,6 @@
 }
 
 .event-club-1 button:hover {
-    transform: scale(1.05);
     cursor: pointer;
     background-color: #0056b3;
 }
@@ -157,3 +165,4 @@
     scale: calc(1.05);
     cursor: pointer;
 }
+

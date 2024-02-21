@@ -22,7 +22,6 @@ body {
     margin: 0;
     background-color: var(--background-color);
     font-family:Arial, Helvetica, sans-serif;
-    height: 100vh;
 }
 /* NAVBAR */
 #nav-container {
@@ -32,6 +31,7 @@ body {
     align-items: center;
     background-color: #012c57;
     border-bottom: 1px solid #0000002d;
+    padding: 1rem;
 }
 
 #main-nav-h1 {
@@ -160,7 +160,10 @@ body {
     align-items: center;
     width: 100%;
     font-size: 0.9rem;
-    margin: auto;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    margin-top: auto;
     border-top: 1px solid #0000002d;
 }
 #main-footer-p {

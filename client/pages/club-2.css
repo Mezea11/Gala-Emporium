@@ -19,6 +19,7 @@
     width: 30%;
     background-image: url("../assets/wood.jpg");
     border-radius: 2rem;
+    font-family: 'Brush Script MT', cursive;
     
     h1 {
         font-size: 5rem;
@@ -30,20 +31,58 @@
     }
 }
 
-#sidebar-club2 {
+#sidebar-left-club2 {
     display: flex;
     position: fixed;
     left: 1rem;
-    font: bold;
-    margin-top: 7rem;
+    color: rgb(221, 27, 27);
     width: 19rem;
     flex-direction: column;
     background-image: url("../assets/helmet.jpg");
+    top: 20%;
 
     p {
+        text-align: center;
         margin-left: 0.3rem;
         margin-right: 0.1rem;
-        margin-bottom: 22rem;
+        margin-bottom: 18rem;
+    }
+}
+
+#sidebar-right-club2 {
+    display: flex;
+    position: fixed;
+    right: 1rem;
+    width: 22rem;
+    color: white;
+    font-size: 1.5rem;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(16, 182, 24);
+    top: 25%;
+    border-radius: 1rem;
+    border: 0.5rem solid rgb(2, 32, 10);
+
+    p {
+        display: flex;
+        text-align: center;
+        font-family: 'Courier New', monospace;
+    }
+
+    button:hover {
+        transform: scale(1.1);
+        background-color: rgb(4, 77, 23);
+        cursor: pointer;
+    }
+
+    button {
+        width: 11rem;
+        height: 4rem;
+        font-size: 1.8rem;
+        border-radius: 1rem;
+        background-color: rgb(5, 109, 31);
+        border: 0.3rem solid rgb(2, 32, 10);
+        margin: 0.5rem 0.1rem 2rem 0.3rem;
       }
 }
 
@@ -60,12 +99,39 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    border-radius: 6rem;
+    
+    h1 {
+        font-family: 'Brush Script MT', cursive;
+    }
+    h2 {
+    font-size: 1rem;  
+    margin-top: 0;  
+    }
+}
+
+.description-club2 {
+    text-align: center;
+    font-family: 'Brush Script MT', cursive;
+    color: rgb(77, 6, 6);
+    margin: 0;
+}
+.date-club2 {
+    font-weight: bold;
+    color: black;
 }
 
 .event-club-2 button {
-    width: 3.5rem;
+    width: 6rem;
     height: 2.5rem;
+    font-weight: bold;
     border-radius: 1rem;
-    background-color: rgb(4, 78, 23);
+    background-color: rgb(7, 102, 31);
     border-color: rgb(2, 32, 10);
+}
+
+.event-club-2 button:hover {
+    transform: scale(1.1);
+    background-color: rgb(4, 63, 20);
+    cursor: pointer;
 }

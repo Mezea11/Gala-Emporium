@@ -8,24 +8,24 @@ export default async function home() {
   let html = '';
 
   for (let i = 0; i < result.length; i++) {
-      let data = result[i];
+    let data = result[i];
 
-      const eventDate = new Date(data.date).toLocaleString('en-SE', {
-        weekday: 'long',
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric',
-        hour: 'numeric',
-        minute: 'numeric'
+    const eventDate = new Date(data.date).toLocaleString('en-SE', {
+      weekday: 'long',
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+      hour: 'numeric',
+      minute: 'numeric'
     });
 
 
-      html += `
+    html += `
           <div class="event">
               <h3>${data.title}</h3>
               <h4>${eventDate}</h4>
               <p>${data.description}</p>
-              <button>Book Tickets</button>
+              <a href="#booking"><button>Book tickets</button></a>
           </div>
       `;
   }

@@ -6,6 +6,9 @@ export default async function club2() {
 
     let event = ''
 
+    let exempel = result[0]
+    console.log(exempel)
+
     for (let i = 0; i < result.length; i++) {
 
         let data = result[i];
@@ -18,15 +21,16 @@ export default async function club2() {
             hour: 'numeric',
             minute: 'numeric'
         });
-        
+
         event += `
         <div class="event-club-2">
             <h1>${data.title}</h1>
-            <h1>${eventDate}</h1>
-            <p>${data.description}</p>
-            <button>Tickets</button>
+            <h2>${eventDate}</h2>
+            <p class="description-club2">${data.description}</p>
+            <p class="date-club2">Tickets available: ${data.available_tickets}</p>
+            <button onclick="navigateToBooking('${data._id}')">Book tickets</button>
         </div>
-      `    
+      `
     }
     return `
     <div id="club-2-container"> 
@@ -34,9 +38,12 @@ export default async function club2() {
             <h1>Valhall</h1>
             <h2>Live rock and metal at it's best</h2>
         </section>
-        <div id="sidebar-club2">
-            <p>One of Scandanavias biggest music clubs ever since it's inception in 1996. Bla bla</p>
-    
+        <div id="sidebar-right-club2">
+            <p>Experience a night out with amazing live music!</p>
+            <a href="#booking"><button>Book tickets</button></a>
+        </div>
+        <div id="sidebar-left-club2">
+            <p>One of Scandanavias biggest music clubs, ever since it's inception in 1996. In central Gothenburg, the legendary club has hosted some of the biggest names in the rock and metal world. <br><br>Welcome to Valhall!</p>
         </div>
         <section id="event-container-club-2">
             ${event}
@@ -44,3 +51,10 @@ export default async function club2() {
     </div>
     `
 }
+
+function navigateToBooking(eventId) {
+    window.location.href = "#booking";
+    sessionStorage.setItem('bookingEventId', eventId);
+}
+
+window.navigateToBooking = navigateToBooking;
