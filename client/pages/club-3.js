@@ -34,6 +34,7 @@ export default async function club3() {
                         <h4>${eventDate}</h4>
                         <h3>${data.title}</h3>
                         <p>${data.description}</p>
+                        <h3>Tickets available: ${data.available_tickets}</h3>
                     </article>
                     <div>
                         <a href="#booking"><button onclick="navigateToBooking('${data._id}')">Book here</button></a>

@@ -1,4 +1,8 @@
 #admin-container {
+    background-image: url('../assets/oscars.jpg');
+    background-size: cover;
+    background-repeat: repeat;
+    background-attachment: fixed;
     margin: 0;
     display: flex;
     justify-content: center;
@@ -67,8 +71,9 @@
     word-break: break-all;
 }
 
-.update-event-container {
+#update-event-container {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 100%;
@@ -92,11 +97,13 @@
     margin-top: 5px;
     margin-bottom: 5px;
 }
+
 #updateEventform input {
     width: 10rem;
     margin: 5px;
     padding: 5px;
 }
+
 #updateEventform button {
     width: 10rem;
     height: 2rem;
@@ -108,6 +115,7 @@
     background-color: rgba(0, 0, 255, 0.932);
     color: white;
 }
+
 #updateEventform button:hover {
     scale: calc(1.05);
     background-color: rgba(0, 0, 255, 0.945);
@@ -134,4 +142,22 @@
 #log-out-btn:hover {
     transform: translateY(-5%);
     box-shadow: 0 0 6px #000000;
+}
+
+#confirmUpdate {
+    color: green;
+    align-items: center;
+    display: none;
+}
+
+#confirmDelete {
+    color: red;
+    align-items: center;
+    display: none;
+}
+
+#confirmEvent {
+    color: green;
+    align-items: center;
+    display: none;
 }
