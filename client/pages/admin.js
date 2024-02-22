@@ -1,8 +1,8 @@
+//import variables
 import { adminId, formData } from './login.js';
+//delcare global array to store fetched events
 var allEvents = [];
 export default async function admin() {
-    console.log(adminId);
-
     const response = await fetch('/api/clubs/' + adminId);
     const result = await response.json();
 
@@ -71,14 +71,10 @@ export default async function admin() {
                     <input type="number" name="tickets" placeholder="Enter amount of bookable tickets">
                     
                     <button type="submit">Create new event</button>
+                    <p id="confirmEvent">A new event has been added!</p>
                 </form>
-                <p id="confirmEvent">A new event has been added!</p>
+
             </section>
-            
-            <article class="event-container-admin">
-                
-            </article>
-            
 
             <section id="update-event-container">
                 <form id="updateEventform" onsubmit="submitUpdate(); return false">
@@ -100,9 +96,9 @@ export default async function admin() {
                     <input type="number" name="tickets" id="ticketsUp" placeholder="Enter amount of bookable tickets">
                     <button type="submit">Update event</button>
                     <button type="button" onclick="deleteEvent();">Delete Event</button>
+                    <p id="confirmUpdate">The event has been updated!</p>
+                    <p id="confirmDelete">The event has been deleted!</p>
                 </form>
-                <p id="confirmUpdate">The event has been updated!</p>
-                <p id="confirmDelete">The event has been deleted!</p>
             </section>
         </section>
     `;
@@ -136,9 +132,9 @@ async function populateForm() {
         $('#ticketsUp').val(selectedEvent.available_tickets);
     }
 }
-
+//logout function
 async function logOut() {
-    const response = await fetch('/api/login', {
+        await fetch('/api/login', {
         method: 'DELETE',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
@@ -189,6 +185,7 @@ async function submitUpdate() {
         }
 
         $('#confirmUpdate').show();
+        $('#confirmDelete').hide();
         console.log('Event successfully updated');
         return true;
     } catch (error) {

@@ -14,11 +14,6 @@
     font-family:Arial, Helvetica, sans-serif;
 }
 
-#edit-event-container{
-    display: flex;
-    flex-direction: column;
-}
-
 #create-event-container{
     display: flex;
     flex-direction: column;
@@ -77,6 +72,7 @@
     justify-content: center;
     align-items: center;
     width: 100%;
+    margin-bottom: 5%;
 }
 
 #updateEventform {
@@ -89,7 +85,6 @@
     padding: 1rem;
     box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.425);
     width: 25%;
-    margin-bottom: 5%;
 }
 
 #updateEventform select{
@@ -147,7 +142,7 @@
 #confirmUpdate {
     color: green;
     align-items: center;
-    display: none;
+    display: none; 
 }
 
 #confirmDelete {

@@ -1,13 +1,15 @@
 export default async function club1() {
-  const response = await fetch('/api/events/65c4e75412df1cd5059cdd46') //clubId: 65c4e75412df1cd5059cdd46
+  const response = await fetch('/api/events/65c4e75412df1cd5059cdd46') //Specific clubId for Ivy Lounge: 65c4e75412df1cd5059cdd46
   const result = await response.json()
 
+  // Sorts events by date
   result.sort((a, b) => new Date(a.date) - new Date(b.date));
 
   let club1Events = ''
 
+  // Loop through array to get event objects
   for (let i = 0; i < result.length; i++) {
-
+      
       let data = result[i];
       
       const eventDate = new Date(data.date).toLocaleString('en-SE', {
@@ -19,7 +21,7 @@ export default async function club1() {
         minute: 'numeric'
     });
     
-
+  // -- assign fetched data to html elements with jquery
       club1Events += `
       <div class="event-club-1">
           <h2>${data.title}</h2>
@@ -30,7 +32,7 @@ export default async function club1() {
           
       </div>
     `    
-//      console.log(result);
+
   }
 
     return `
@@ -54,7 +56,7 @@ export default async function club1() {
   }
 
 
-    //navigerar till booking-sidan och skickar med eventId för att få det evenemang du klickade på som förval
+    // Navigates to specific booking ID when "Book Tickets" button is pressed 
     function navigateToBooking(eventId, availableTickets) {
       window.location.href = "#booking";
       sessionStorage.setItem('bookingEventId', eventId);

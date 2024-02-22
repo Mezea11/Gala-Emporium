@@ -1,3 +1,4 @@
+//delcare global  variables
 let allEvents = [];
 let bookingEventId;
 let availableTickets;
@@ -123,7 +124,7 @@ async function updateTicketCount() {
   }
 }
 
-
+// Submits all values to database (name, email, eventID, x tickets)
 async function submitForm() {
     let form = $('#booking');
 
@@ -145,6 +146,7 @@ async function submitForm() {
     };
 
     try {
+        //checks that there enough tickets available
         let ticketCountValid = await updateTicketCount();
           if (ticketCountValid) {
           const response = await fetch("/api/booking", {
@@ -159,14 +161,15 @@ async function submitForm() {
 
           let responseData = await response.json();
           let bookingId = responseData._id;
-          
+          // Shows message: Booking confirmed (if enough tickets) Not enough tickets (else not enough tickets)
           $("#confirmBooking").show();
           $("#notEnoughTickets").hide();
           $("#confirmBookingId").text(` ${bookingId}`);
           console.log("Form submitted successfully");
 
+          // Clear user input in form func called
           await resetForm();
-
+          //empties sessionStorage which contain eventId and eventTickets for the event you came from
           sessionStorage.clear();
       } else {
         console.log("Ticket count validation failed");
@@ -176,6 +179,8 @@ async function submitForm() {
     }
 }
 
+
+// Clears user input 
 async function resetForm() {
   let form = $('#booking');
   form.find('[name="name"]').val('');
@@ -184,6 +189,7 @@ async function resetForm() {
   form.find('[name="tickets"]').val('');
 }
 
+// All of our functions invoked
 window.updateTicketCount = updateTicketCount;
 window.populateTickets = populateTickets;
 window.submitForm = submitForm;

@@ -2,7 +2,7 @@
 export default async function home() {
   const response = await fetch('/api/events/');
   const result = await response.json();
-
+  //sorterar result efter dattum
   result.sort((a, b) => new Date(a.date) - new Date(b.date));
 
   let html = '';
@@ -67,6 +67,7 @@ export default async function home() {
      `
 }
 
+// navigate to booking page
 function navigateToBooking(eventId, availableTickets) {
   window.location.href = "#booking";
   sessionStorage.setItem('bookingEventId', eventId);

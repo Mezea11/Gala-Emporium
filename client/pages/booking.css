@@ -88,8 +88,9 @@
 
 #choose-event{
     margin-top: 1rem;
+    overflow: hidden;
+    width: 100% !important;
 }
-
 #choose-event-div{
     margin-top: 1rem;
 }

@@ -11,6 +11,7 @@ const booking = mongoose.model('bookings', bookingSchema)
 
 export default function bookings(server) {
     
+    // GET all bookings
     server.get('/api/booking', async (req, res) => {
         try {
             console.log("hello world")
@@ -21,6 +22,7 @@ export default function bookings(server) {
     }
     });
     
+    // POST booking
       server.post('/api/booking', async (req, res) => {
         try {
             const { name, email, eventId, tickets } = req.body;
@@ -32,7 +34,8 @@ export default function bookings(server) {
             res.status(400).json({ error: 'Bad Request' });
         }
       });
-      // delete 1 booking by id
+
+      // Delete 1 booking by id
       server.delete('/api/booking/:id', async (req, res) => {
         const id = req.params.id;
         try {
@@ -49,7 +52,8 @@ export default function bookings(server) {
           res.status(500).json({ error: 'Internal Server Error' });
         }
       });
-    // update whole event by id
+
+    // Update whole event by id
       server.put('/api/booking/:id', async (req, res) => {
         const id = req.params.id;
         const updatedBooking = req.body;
@@ -67,7 +71,8 @@ export default function bookings(server) {
           res.status(500).json({ error: 'internal server error' });
         }
       });
-    // update part of an event by id
+
+    // Update part of an event by id
       server.patch('/api/booking/:id', async (req, res) => {
         const id = req.params.id;
         const partialUpdate = req.body;
@@ -79,7 +84,6 @@ export default function bookings(server) {
           return res.status(404).json({ error: 'Booking not found' });
         }
     
-    //      res.status(200).json(updatedItem);
           console.log('Booking partially updated');
     
         } catch (error) {
@@ -89,4 +93,3 @@ export default function bookings(server) {
       });
       
 }
-

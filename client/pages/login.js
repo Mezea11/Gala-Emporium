@@ -1,4 +1,3 @@
-//import { adminsModel } from '../../server/api/Admins';
 
 export default function login() {
     return `
@@ -22,13 +21,6 @@ export default function login() {
     </div>
     `;
 }
-
-/* Handle login with database
--- post username and password
--- check if it coincides with data in database
--- if false, feedback 
--- if true, go to page for admin as logged in
- */
 
 export let adminId;
 export let formData;

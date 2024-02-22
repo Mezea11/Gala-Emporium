@@ -28,7 +28,6 @@ export default function events(server) {
       res.status(500).json({ error: 'Internal Server Error' });
     }
     });
-    //get 1 event by id
 
     // Endpoint to get events associated with a specific club
     server.get('/api/events/:clubId', async (req, res) => {
@@ -71,7 +70,6 @@ export default function events(server) {
     }
   });
 
-  
 // update whole event by id
   server.put('/api/events/:id', async (req, res) => {
     const id = req.params.id;
@@ -111,12 +109,3 @@ export default function events(server) {
   });
     
   }
-
-  
-/* 
-   Dra in klubb ID till events, koppla ihop
-   Skapa en endpoint som låter oss hämta in ett SPECIFIKT event
-
-   Gå in till events, filtrera ut de som har motsvarande klubb ID som de  är associerade med 
-   
-*/

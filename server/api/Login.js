@@ -1,6 +1,8 @@
 import { adminsModel } from './Admins.js';
 
 export default function login(server) {
+    //create new endpoint for login
+    //use session to save admin login data
     server.post('/api/login', async (req, res) => {
         if (req.session.login) {
             res.json({
@@ -18,7 +20,7 @@ export default function login(server) {
                     mysession: req.session,
                     message: `Välkommen ${admin.username}. Du är nu inloggad`,
                 });
-                //res.json(admin)
+                
             } else {
                 res.json({
                     message: 'användarnamn eller lösenord är felaktigt',
@@ -26,7 +28,7 @@ export default function login(server) {
             }
         }
     });
-
+    //new endpoint to get session data for login
     server.get('/api/check-login', (req, res) => {
         if (req.session.login) {
             // Admin is logged in
@@ -41,7 +43,7 @@ export default function login(server) {
             });
         }
     });
-
+        //logout request
       server.delete('/api/login', async(req, res) => {
         try{
             if (req.session.login) {

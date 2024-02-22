@@ -11,8 +11,6 @@ import admin from './pages/admin.js';
 
 // Function to change "location"
 async function route() {
-    //console.log(location)
-
   switch (location.hash.replace('#', '')) {
     case "about":
       console.log("ABOUT")
@@ -57,13 +55,8 @@ async function route() {
         $('main').html(await admin());
     } else {
         console.log("Admin not logged in");
-        // Redirect to login page or handle accordingly
-        // Example: window.location.href = '/login';
     }
     break;
-  //    console.log("admin");
-  //    $('main').html(await admin())
-  //    break;
     default:
       console.log("404 You've broken the internet")
   }
