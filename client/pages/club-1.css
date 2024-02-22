@@ -9,7 +9,7 @@
     padding: 1rem;
     margin: auto;
     background: rgb(7,8,2);
-    background: linear-gradient(89deg, #cccccc 0%, #44301a 50%, #cccccc 100%);
+    background: linear-gradient(89deg, #241f19 0%, #44301a 50%, #8a8585 100%);
     position: sticky;
 }
 
@@ -111,6 +111,8 @@
     font-size: medium;
     color: rgb(0, 0, 0);
     font-family: "Lora", Arial, Helvetica, sans-serif;
+    text-decoration: underline;
+
 }
 
 .event-club-1 p {
@@ -166,3 +168,8 @@
     cursor: pointer;
 }
 
+#date-club1 {
+    background-color: transparent!important;
+    margin: 0;
+    color: green;
+}
