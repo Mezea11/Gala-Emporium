@@ -37,7 +37,7 @@ export default async function club3() {
                         <h3>Tickets available: ${data.available_tickets}</h3>
                     </article>
                     <div>
-                        <a href="#booking"><button onclick="navigateToBooking('${data._id}')">Book here</button></a>
+                        <a href="#booking"><button onclick="navigateToBooking('${data._id}', '${data.available_tickets}')">Book here</button></a>
                     </div>
                 </section>
         
@@ -71,9 +71,10 @@ export default async function club3() {
 }
 
 // go to bookings with chosen event already filled in
-function navigateToBooking(eventId) {
+function navigateToBooking(eventId, availableTickets) {
     window.location.href = '#booking';
     sessionStorage.setItem('bookingEventId', eventId);
+    sessionStorage.setItem('availableTickets', availableTickets);
 }
 
 window.navigateToBooking = navigateToBooking;
