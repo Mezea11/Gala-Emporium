@@ -59,4 +59,3 @@ function navigateToBooking(eventId) {
 }
 
 window.navigateToBooking = navigateToBooking;
-window.navigateToBooking = navigateToBooking;
