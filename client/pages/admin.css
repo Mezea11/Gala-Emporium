@@ -1,5 +1,17 @@
 #admin-container {
-    margin: auto;
+    background-image: url('../assets/oscars.jpg');
+    background-size: cover;
+    background-repeat: repeat;
+    background-attachment: fixed;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    background-color: #f5f5f5;
+    font-family:Arial, Helvetica, sans-serif;
 }
 
 #edit-event-container{
@@ -10,4 +22,142 @@
 #create-event-container{
     display: flex;
     flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    width: 25%;
+    margin-bottom: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.425);
+    margin-top: 1%;
+}
+
+
+#create-event-container button {
+    width: 10rem;
+    height: 2rem;
+    font-size: small;
+    cursor: pointer;
+    margin: 10px;
+    border-radius: 5px;
+    border: transparent;
+    background-color: rgba(0, 0, 255, 0.932);
+    color: white;
+}
+#create-event-container button:hover {
+    scale: calc(1.05);
+    background-color: rgba(0, 0, 255, 0.945);
+    transition: ease-in-out 0.3s;
+    box-shadow: 0 0 4px #000000;
+}
+
+#newEventForm {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#newEventForm input {
+    padding: 5px;
+}
+
+#event-description {
+    width: auto; /* Adjust this value as needed */
+    max-width: 25rem; /* Limit the maximum width */
+    height: 5rem;
+    text-align: left;
+    resize: none;
+    overflow: auto;
+    word-break: break-all;
+}
+
+#update-event-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+#updateEventform {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.425);
+    width: 25%;
+    margin-bottom: 5%;
+}
+
+#updateEventform select{
+    width: 11rem;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+#updateEventform input {
+    width: 10rem;
+    margin: 5px;
+    padding: 5px;
+}
+
+#updateEventform button {
+    width: 10rem;
+    height: 2rem;
+    font-size: small;
+    cursor: pointer;
+    margin: 10px;
+    border-radius: 5px;
+    border: transparent;
+    background-color: rgba(0, 0, 255, 0.932);
+    color: white;
+}
+
+#updateEventform button:hover {
+    scale: calc(1.05);
+    background-color: rgba(0, 0, 255, 0.945);
+    transition: ease-in-out 0.3s;
+    box-shadow: 0 0 4px #000000;
+}
+
+#log-out-btn {
+    border: transparent;
+    border-radius: 5px;
+    padding: 0.5rem;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all .3s ease;
+    background-color: rgb(124, 8, 8);
+    display: flex;
+    align-items: center;
+    margin-top: 1%;
+    justify-content: flex-start;
+    margin-right: 90%;
+}
+
+#log-out-btn:hover {
+    transform: translateY(-5%);
+    box-shadow: 0 0 6px #000000;
+}
+
+#confirmUpdate {
+    color: green;
+    align-items: center;
+    display: none;
+}
+
+#confirmDelete {
+    color: red;
+    align-items: center;
+    display: none;
+}
+
+#confirmEvent {
+    color: green;
+    align-items: center;
+    display: none;
 }

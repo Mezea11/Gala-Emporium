@@ -22,7 +22,6 @@ body {
     margin: 0;
     background-color: var(--background-color);
     font-family:Arial, Helvetica, sans-serif;
-    height: 100vh;
 }
 /* NAVBAR */
 #nav-container {
@@ -30,18 +29,19 @@ body {
     flex-direction: row;
     justify-content: flex-end;
     align-items: center;
+    padding: 0;
     background-color: #012c57;
     border-bottom: 1px solid #0000002d;
+    
 }
 
 #main-nav-h1 {
     color: white;
     font-size: 1.5rem;
-    margin-bottom: 0;
     text-shadow: 1px 2px 2px rgb(0, 0, 0); /* Subtle shadow */
     display: flex;
-    align-items: start;
-    margin-bottom: 1rem;
+    text-align: center;
+    justify-content: flex-start;
     margin-left: 1rem;
     flex: 1;
     font-family: Georgia, 'Times New Roman', Times, serif;
@@ -50,7 +50,7 @@ body {
 #nav-container a {
     color: white !important; /* Important to override default link color */
     text-decoration: none;
-    padding: 10px 15px;
+    
     border-radius: 8px;
     transition: background-color 0.3s ease;
     min-width: 120px;
@@ -58,8 +58,9 @@ body {
 
 /* Hover effect for navbar links */
 #nav-container a:hover {
-    background-color: #02025031;
-    color: var(--background-color);
+    cursor: pointer;
+    scale: calc(1.01);
+    transition: 0.3s ease-in-out;
 }
 
 /* Visited link color for navbar links */
@@ -75,6 +76,7 @@ body {
     align-items: center;
     list-style-type: none;
     gap: 2rem;
+    margin-right: 2%;
     color: var(--text-color);
     text-shadow: 1px 1px 2px #000000; /* Subtle shadow */
 }
@@ -160,7 +162,10 @@ body {
     align-items: center;
     width: 100%;
     font-size: 0.9rem;
-    margin: auto;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    margin-top: auto;
     border-top: 1px solid #0000002d;
 }
 #main-footer-p {

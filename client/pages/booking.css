@@ -1,7 +1,15 @@
+#booking-page-container {
+    background-image: url('../assets/oscars.jpg');
+    background-size: cover;
+    background-repeat: repeat;
+    background-attachment: fixed;
+    width: 100%;
+    height: 100%;
+}
+
 #booking-page {
     display: flex;
     flex-direction: column;
-    
 }
 
 #booking-page h1 {
@@ -20,7 +28,72 @@
 }
 
 #confirmBooking {
+    border: 0.2rem solid white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 1rem;
+    margin-top: 1rem;
+    padding: 1rem;
+    height: fit-content;
+    color: white;
+    background-color: #012c57f0;
+    border: solid white;
     color: forestgreen;
     align-items: center;
     display: none;
+}
+
+#notEnoughTickets {
+    border: 0.2rem solid white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 1rem;
+    margin-top: 1rem;
+    padding: 1rem;
+    height: fit-content;
+    color: white;
+    background-color: #012c57f0;
+    border: solid white;
+    color: red;
+    align-items: center;
+    display: none;
+}
+#available-tickets {
+    font-size: 1em;
+}
+
+#confirmBookingId {
+    color: darkorange;
+}
+
+#booking-page {
+    margin: auto;
+    margin-top: 3%;
+    border-radius: 1rem;
+    margin-left: 0 auto;
+    height: 100vh;
+    align-items: center;
+}
+
+#inner-container{
+    width: fit-content;
+    border: 0.2rem solid white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 1rem;
+    margin-top: 1rem;
+    padding: 1rem;
+    height: fit-content;
+    color: white;
+    background-color: #012c57f0;
+    border: solid white;
+}
+
+#choose-event{
+    margin-top: 1rem;
+}
+
+#choose-event-div{
+    margin-top: 1rem;
+}
+
+#inner-container input{
+    margin-top: 1rem;
 }

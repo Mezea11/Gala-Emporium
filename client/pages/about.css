@@ -1,20 +1,26 @@
 #about-container {
-    background-image: url('../assets/teater.jpeg');
+    background-image: url('../assets/oscars.jpg');
     background-size: cover;
     background-repeat: repeat;
     background-attachment: fixed;
 }
 
 #about-container h1 {
-    font-family: "Protest Riot", sans-serif;
-    color: #012c57;
-    width: 100%;
+    color: white;
+    width: 80%;
+    height: fit-content;
+    padding: 1rem;
+    margin-top: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border: 0.2rem solid white;
     text-align: center;
     font-size: xx-large;
+    background-color: #012c57f0;
+    font-family: "Wellfleet", monospace;
 } 
 
 #Panes {
-    background-color: rgba(242, 168, 32, 0.824);
     color: #012c57;
     width: fit-content;
     margin: 7rem;
@@ -30,31 +36,38 @@
 }
 
 .pane-block {
-    background-color: rgba(106, 142, 35, 0.632);
-    width: 40%; /* Adjust the width as needed */
+    border: 0.2rem solid white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 1rem;
+    margin: 3rem;
+    padding: 3rem;
+    height: fit-content;
+    color: white;
+    background-color: #012c57f0;
+    border: solid white;
+    height: 100%;
+    width: 40%; 
     margin: 1rem;
     padding: 1rem;
-    border-radius: 1rem;
-    border: 0.3rem solid #012c57;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     box-sizing: border-box;
     text-align: left;
 }
 
 #contact h2 {
     text-align: center;
-
 }
 
 #contact {
     width: 50%;
     text-align: center;
-    color: rgb(59,89,152);
-    color: linear-gradient(90deg, rgba(59,89,152,1) 41%, rgba(48,145,191,1) 100%);
+    color: white;
 }
 
 #contact a {
-    color: #012c57 !important;
+    color: white;
     text-decoration: none;
     width: 1rem;
+}
+#contact a :hover {
+    color: gray;
 }

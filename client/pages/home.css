@@ -19,39 +19,35 @@
     min-width: 120px;
 }
 
-#home-container a:hover {
-    background-color: #c8c8eb31;
-    color: var(--background-color);
-}
-
 .event-calendar {
-    background-color: rgba(242, 168, 32, 0.824);
+    background-color: rgba(242, 168, 32, 0.525);
     width: 48%;
     padding: 2rem;
-    margin-left: 0 auto;
-    margin-top: 2rem;
+    margin-left: auto;
+    margin-top: 3rem;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 #home-container .event-calendar h2 {
-    color:  #012c57;
+    color:  #014588;
     font-family: "Protest Riot", sans-serif;
-    font-weight: bold;
     font-size: xx-large;
     font-style: oblique;
 }
 
 .event {
-    background-color: rgba(106, 142, 35, 0.632);
-    color:  #012c57;
+    background-color: #014588;
+    color:  whitesmoke;
     padding: 2rem;
-    border-radius: 5px;
+    border-radius: 3rem;
+    border: 0.2rem solid #012c57;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     margin-bottom: 3rem;
 }
 
 .sidebar {
     background-color: #012c57;
+    border: 0.2rem solid white;
     color: whitesmoke;
     border-radius: 1rem;
     width: 20%;
