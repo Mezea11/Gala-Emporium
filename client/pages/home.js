@@ -26,7 +26,7 @@ export default async function home() {
               <h3>${eventDate}</h3>
               <p>${data.description}</p>
               <h3>Tickets available: ${data.available_tickets}</h3>
-              <a href="#booking"><button>Book tickets</button></a>
+              <a onclick="navigateToBooking('${data._id}', '${data.available_tickets}')"><button>Book tickets</button></a>
           </div>
       `;
   }
@@ -66,3 +66,11 @@ export default async function home() {
      </aside>
      `
 }
+
+function navigateToBooking(eventId, availableTickets) {
+  window.location.href = "#booking";
+  sessionStorage.setItem('bookingEventId', eventId);
+  sessionStorage.setItem('availableTickets', availableTickets);
+}
+
+window.navigateToBooking = navigateToBooking;
