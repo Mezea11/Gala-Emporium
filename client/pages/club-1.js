@@ -25,7 +25,7 @@ export default async function club1() {
           <h2>${data.title}</h2>
           <p>${data.description}</p>
           <h5>${eventDate}</h5>
-          <p class="date-club1">Tickets available: ${data.available_tickets}</p>
+          <p id="date-club1">Tickets available: ${data.available_tickets}</p>
           <button><a href="#booking">Book Tickets</a></button>
       </div>
     `    
