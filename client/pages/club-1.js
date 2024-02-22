@@ -26,7 +26,8 @@ export default async function club1() {
           <p>${data.description}</p>
           <h5>${eventDate}</h5>
           <p id="date-club1">Tickets available: ${data.available_tickets}</p>
-          <button><a href="#booking">Book Tickets</a></button>
+          <button class="booking-button" onclick="navigateToBooking('${data._id}', '${data.available_tickets}')">Book Tickets</button>
+          
       </div>
     `    
 //      console.log(result);
@@ -51,3 +52,13 @@ export default async function club1() {
       </section>
       `
   }
+
+
+    //navigerar till booking-sidan och skickar med eventId för att få det evenemang du klickade på som förval
+    function navigateToBooking(eventId, availableTickets) {
+      window.location.href = "#booking";
+      sessionStorage.setItem('bookingEventId', eventId);
+      sessionStorage.setItem('availableTickets', availableTickets);
+  }
+
+  window.navigateToBooking = navigateToBooking;
